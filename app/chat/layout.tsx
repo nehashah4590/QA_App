@@ -6,11 +6,13 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
   return (
     <main>
-        <div className="flex">
-            <div className="w-[20vw] bg-red-500">
+        <div className="flex bg-slate-600">
+            <div className=" ">
                 <Navbar/>
             </div>
-            {children}
+            <div className="w-full">
+                {children}
+            </div>
         </div>
     </main>  
 
