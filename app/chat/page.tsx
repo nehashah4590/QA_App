@@ -3,8 +3,10 @@ import { useState } from 'react';
 
 const ChatPage = () => {
   return (
-    <div className="min-h-screen p-4 bg-slate-600">
-      
+    <div className=" p-4 bg-slate-600 h-full">
+      <div className='bg-gray-400 m-8 p-4 '>
+        Hello world
+      </div>
     </div>
   );
 };
