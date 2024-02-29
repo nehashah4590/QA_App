@@ -28,6 +28,7 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
               className="text-xs text-center bg-black text-gray-50 absolute left-4 top-[60px] w-[100px] rounded-md p-1">
                 Expand menu
               </p>)}
+              {open && <Navbar/>}
           </div> 
           <div className="p-7 w-full bg-slate-400">
             {children}
