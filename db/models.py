@@ -34,3 +34,7 @@ class Collection:
     def load_code_collection(self):
         collection = self.db.get_collection("Verification Code")
         return collection
+
+    def load_chat_collection(self):
+        collection = self.db.get_collection("Chat")
+        return collection

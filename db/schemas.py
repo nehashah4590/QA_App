@@ -9,6 +9,9 @@ class Verification(BaseModel):
     email: EmailStr = Field(...)
     code: str = Field(...)
 
+class Question(BaseModel):
+    question: str = Field(...)
+
 class ResetPassword(Verification):
     password: str = Field(...)
 
