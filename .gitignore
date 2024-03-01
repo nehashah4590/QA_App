@@ -2,3 +2,5 @@
 .idea/
 __pycache__/
 FastAPI.postman_collection.json
+venv
+maildir/gpt_email.json

@@ -5,6 +5,13 @@ class LoginSchema(BaseModel):
     email: EmailStr = Field(...)
     password: str = Field(...)
 
+class Verification(BaseModel):
+    email: EmailStr = Field(...)
+    code: str = Field(...)
+
+class ResetPassword(Verification):
+    password: str = Field(...)
+
 class UserParse:
     def __init__(self,user):
         self.user = user

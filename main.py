@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.responses import RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
 from userdir.routes import UserRoutes
 from db import ping_server
@@ -31,7 +32,6 @@ usr_router.setup_routes()
 
 app.include_router(usr_router.router)
 
-
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run("main:app", host="https://master--musical-nasturtium-5a528b.netlify.app/", port=8000, reload=True)
+@app.get("/")
+def redirect_url():
+    return RedirectResponse(url = '/docs/')
