@@ -7,15 +7,16 @@ collection = Collection()
 chat = collection.load_chat_collection()
 
 class CRUD:
-    async def ask_question(self,question, user):
+    async def ask_question(self,question, user,chat_id:int):
         try:
             if len(question) >255:
                 raise HTTPException(status_code=status.HTTP_413_REQUEST_ENTITY_TOO_LARGE, detail="Question too long")
             answer = generate_answer(question)
-            await chat.insert_one({"email":user["email"], "question":question, "answer":answer, "date":datetime.utcnow()})
+            await chat.insert_one({"email":user["email"], "question":question, "answer":answer, "date":datetime.utcnow(),"chat_id":chat_id})
             dict = {
                 "question": question,
-                "answer": answer
+                "answer": answer,
+                "chat_id": chat_id
             }
             return dict
         except Exception as e:
@@ -29,5 +30,6 @@ class CRUD:
             list_dict["question"] = qa["question"]
             list_dict["answer"] = qa["answer"]
             list_dict["date"] = qa["date"]
+            list_dict["chat_id"] = qa["chat_id"]
             list_history.append(list_dict)
         return list_history

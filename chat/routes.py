@@ -22,7 +22,7 @@ class ChatRoutes:
         if not user:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail = "No user found")
 
-        response = await self.chat_crud.ask_question(question=question.question, user=user)
+        response = await self.chat_crud.ask_question(question=question.question, user=user, chat_id= question.chat_id)
         return response
 
     async def chat_history(self, token: str = Depends(get_current_user), db = Depends(get_db)):
