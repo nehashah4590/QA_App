@@ -11,3 +11,36 @@ html,body{
   max-width: 100%;
   overflow-x: hidden;
 }
+body {
+  overflow: hidden;
+  -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+/* For Webkit (Chrome, Safari) */
+body{
+ 
+  ::-webkit-scrollbar {
+    width: 12px; 
+    height: 7px;/* Adjust the width as desired */
+  }
+
+  ::-webkit-scrollbar-track {
+    background: none; 
+    /* border: 1px solid #1c058f; */
+    
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgb(75,85,99);
+    border-radius: 50px; /* Thumb color */
+     /* Thumb border */
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background:none; /* Hover state color for thumb */
+}
+}
+.box{
+  scroll-behavior: smooth;
+}

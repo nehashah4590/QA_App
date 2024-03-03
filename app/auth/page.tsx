@@ -175,7 +175,7 @@ const Page: React.FC = () => {
             <Link href='../auth/signin'>
               <button className='bg-[#3c46ff] px-16 py-3 rounded-md mr-1 hover:bg-[#0101ff]'>Log in</button>
             </Link>
-            <Link href='./signup'>
+            <Link href='./auth/signup'>
               <button className='bg-[#3c46ff] px-16 py-3 rounded-md ml-1 hover:bg-[#0101ff]'>Sign up</button>
             </Link>
           </div>

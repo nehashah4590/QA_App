@@ -4,6 +4,7 @@ import { useState} from 'react';
 import logo from "../../public/images/logo.png";
 import Image from 'next/image';
 import styles from '../Line.module.css';
+import { MdArrowOutward } from "react-icons/md";
 
 interface NavbarProps {
   section1Id: string;
@@ -73,7 +74,7 @@ const LandingPageNav: React.FC<NavbarProps> = ({ section1Id, section2Id, section
               className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${navbar ? 'block' : 'hidden'
                 }`}
             >
-              <ul className="items-center text-sm font-semibold tracking-[1px] space-y-8 p-3  md:flex md:space-x-6 md:space-y-0 justify-end ">
+              <ul className=" items-center text-sm font-semibold tracking-[1px] space-y-8 p-3 pr-0 md:flex md:space-x-6 md:space-y-0 justify-end ">
                 <li className="pl-4">
                     <div className='mr-1 '>
                       <Link href={`#${section1Id}`} 	prefetch={false} className={styles.link}>
@@ -102,9 +103,11 @@ const LandingPageNav: React.FC<NavbarProps> = ({ section1Id, section2Id, section
                     Contact Us
                   </Link>
                 </li>
-                <button className="border cursor-pointer border-white text-white rounded-md px-8 py-2 font-bold hover:text-black hover:bg-white">
-                  <Link href="../auth" prefetch={false}>
-                    Try GPTNepal
+                <button className="flex pl-4 ml-3 md:ml-0 bg-blue-950 rounded-sm hover:bg-white text-white  px-5 py-2 border border-blue-950 hover:text-blue-950">
+                  <Link href="/auth" prefetch={false}>
+                  <div className='flex justify-center items-center'>
+                  <p>Try GPTNepal</p> <p className='text-2xl pl-2'><MdArrowOutward/></p>
+                  </div>
                   </Link>
                 </button>
               </ul>

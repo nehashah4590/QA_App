@@ -1,8 +1,12 @@
-import { Inter } from 'next/font/google'
 import './globals.css'
 import Providers from './components/Providers';
+import { Roboto } from 'next/font/google';
 
-const inter = Inter({ subsets: ['latin'] })
+const roboto = Roboto({ 
+  subsets: ['latin'] , 
+  weight: ['100','300'],
+  preload: true,
+})
 
 interface Metadata {
   title: string;
@@ -13,7 +17,7 @@ interface Metadata {
 export const metadata: Metadata = {
   title: 'GPT Nepal',
   description: 'web based QA App for Nepal using transformer model',
-  icons: "favicon.jpg",
+  icons: "Group.png",
 }
 
 interface RootLayoutProps {
@@ -23,7 +27,7 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
   return (
     <html lang="en">
-      <body className={inter.className}>   
+      <body className={roboto.className}>   
           <Providers>{children}</Providers>
         </body>
     </html>
