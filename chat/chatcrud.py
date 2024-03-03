@@ -1,10 +1,12 @@
 from db.models import Collection
 from fastapi import HTTPException, status
+from fastapi.responses import JSONResponse
 from chat.model import generate_answer
 from datetime import datetime
 
 collection = Collection()
 chat = collection.load_chat_collection()
+incre_chat  = collection.load_chatid_collection()
 
 class CRUD:
     async def ask_question(self,question, user,chat_id:int):
@@ -33,3 +35,11 @@ class CRUD:
             list_dict["chat_id"] = qa["chat_id"]
             list_history.append(list_dict)
         return list_history
+
+    async def post_chatid(self, chatid, email):
+        add_id = await incre_chat.insert_one({"email":email,"chatid":chatid})
+        return JSONResponse(status_code=status.HTTP_200_OK, content="Chatid added to database")
+
+    async def get_chatid(self, email):
+        chat_id = await incre_chat.find_one({"email":email}, sort=[("chatid",-1)])
+        return chat_id["chatid"]
