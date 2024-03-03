@@ -17,8 +17,8 @@ export default function Home() {
         <div className='text-white absolute top-[60vh] left-[10vw]'>
           <h1 className='text-4xl font-bold'>Introducing GPT Nepal: Your Personal <br/> Guide To Visit Nepal</h1>
         </div>
-        <div className='absolute bottom-[5vh] left-[10vw]'>
-          <button className='border cursor-pointer border-white text-white rounded-md px-8 py-2 font-bold hover:text-black hover:bg-white'>Try GPT Nepal</button>
+        <div className='absolute bottom-[10vh] left-[10vw]'>
+          <button className='border cursor-pointer border-white text-white rounded-md px-8 py-2 font-bold hover:text-black hover:bg-white'>Try GPTNepal</button>
         </div>
         <video className="object-cover w-full h-[100vh]" src='/images/bgvideo.mp4' autoPlay muted loop />
         {/* <div>

@@ -32,7 +32,7 @@ const  SignuPage:React.FC  = () => {
     setLoading(true);
     try {
       // Send registration data to the backend API
-      const response = await axios.post(`${process.env.NEXT_PUBLIC_HOST}/register`, {
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_HOST}/register/`, {
         email:email,
         name:name,
         password:password,
@@ -40,7 +40,7 @@ const  SignuPage:React.FC  = () => {
 
       console.log(response.data);
       setLoading(false);
-      router.push('./signin')
+      router.push('./enter-code')
     } catch (error) {
       console.error('Registration failed:', error);
       setLoading(false);
@@ -55,7 +55,7 @@ const  SignuPage:React.FC  = () => {
           <h1 className='font-bold text-3xl mb-4'>Create your account</h1>
           <div className="w-[400px] py-5 px-6 ">
             <form onSubmit={handleSubmit}>
-              <div className="mb-6 relative">
+            <div className="mb-6 relative">
                 <input
                   type="email"
                   name="floating_email"
@@ -66,12 +66,10 @@ const  SignuPage:React.FC  = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
-                <label 
-                htmlFor="floating_email" 
-                className="pl-4 peer-focus:font-medium absolute left-0 text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 
-                scale-75 top-3 z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8 ">
-                  Email
-                </label>
+                <label htmlFor="floating_email" className="pl-4 peer-focus:font-medium absolute left-0 text-sm text-gray-500 dark:text-gray-400
+                 duration-300 transform -translate-y-8 scale-75 top-3 z-10 origin-[0]  
+                  peer-focus:text-blue-600  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0
+                   peer-focus:scale-75 peer-focus:-translate-y-8">Email</label>
               </div>
               <div className="mb-6 relative">
                 <input
@@ -86,7 +84,7 @@ const  SignuPage:React.FC  = () => {
                 />
                 <label
                  htmlFor="floating_name" 
-                 className="pl-4  peer-focus:font-medium absolute left-0 text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6
+                 className="pl-4  peer-focus:font-medium absolute left-0 text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-8
                   scale-75 top-3 z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8"
                  >Full Name
                 </label>
@@ -103,21 +101,17 @@ const  SignuPage:React.FC  = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                  <label
-                   htmlFor="floating_password" 
-                   className="pl-4   peer-focus:font-medium absolute left-0 text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 
-                   scale-75 top-3 z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8">
-                    Password
-                  </label>
+                  <label htmlFor="floating_password" className="pl-4 peer-focus:font-medium absolute left-0 text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-8
+                   scale-75 top-3 z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8">Password</label>
                 <div className='absolute right-4 top-[11px]'>
-                  {!showPassword && <button type='button' onClick={() => setShowPassword(!showPassword)}><AiFillEyeInvisible /></button>}
-                  {showPassword && <button type='button' onClick={() => setShowPassword(!showPassword)}><AiFillEye /></button>}
+                  {!showPassword && <button type='button' onClick={() => setShowPassword(!showPassword)}><AiFillEyeInvisible color='gray' /></button>}
+                  {showPassword && <button type='button' onClick={() => setShowPassword(!showPassword)}><AiFillEye  /></button>}
                 </div>
               </div>
               {error && <p className='text-red-500 pb-3 '> Registration failed </p>}
               <button
                 type="submit"
-                className="bg-blue-950 w-full hover:bg-white hover:text-black text-white font-medium tracking-wider py-2 rounded-md px-4 border border-blue-950"
+                className="bg-blue-950 w-full hover:bg-blue-900  text-white font-medium tracking-wider py-2 rounded-md px-4 border border-transparent"
               >
                 Register
               </button>
@@ -127,7 +121,7 @@ const  SignuPage:React.FC  = () => {
             {loading && <p>Loading....</p>}
           </div>
           <div className=' p-2'>
-            <p className='text-center pb-4'>Already Have an account? <Link href='./signin' className='text-blue-500 underline'>Log in</Link></p>
+            <p className='text-center pb-4'>Already Have an account? <Link href='./signin' className='text-blue-500'>Log in</Link></p>
             <h1 className='text-center m-2 '><hr/></h1>
             <div className='mt-4'>
               <button

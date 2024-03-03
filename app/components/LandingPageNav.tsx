@@ -102,8 +102,8 @@ const LandingPageNav: React.FC<NavbarProps> = ({ section1Id, section2Id, section
                     Contact Us
                   </Link>
                 </li>
-                <button className="pl-4 ml-3 md:ml-0 bg-blue-950 hover:bg-white text-white  px-5 py-2 border border-blue-950 hover:text-blue-950">
-                  <Link href="/auth" prefetch={false}>
+                <button className="border cursor-pointer border-white text-white rounded-md px-8 py-2 font-bold hover:text-black hover:bg-white">
+                  <Link href="../auth" prefetch={false}>
                     Try GPTNepal
                   </Link>
                 </button>

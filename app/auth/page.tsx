@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import logo from '../../public/images/logo.png';
+import mountaion from "../../public/images/mountain-yellow.png"
 
 const Cursor: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
   return <span style={{ opacity: isVisible ? 1 : 0 }}>|</span>;
@@ -45,7 +46,7 @@ const Typewriter: React.FC<{ texts: string[]; onTypingComplete: () => void }> = 
 };
 
 const thirdSet = {
-  heading: 'Suggest fun activities',
+  heading: 'Suggest adventurous activities',
   applicationNames: ['that is popular in Nepal.'],
 };
 
@@ -89,10 +90,24 @@ const Page: React.FC = () => {
 
   return (
     <>
-      <div className='flex h-screen w-full '>
-        <div className='lg:w-[60%] bg-[#fefedb]'>
+       <div
+        className='flex h-screen w-full relative'
+        style={{
+          backgroundImage: 'url("/images/stupa.jpg")', // Replace with the path to your background image
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        {/* Background Overlay with Image */}
+        <div
+          className='absolute top-0 left-0 w-full h-full bg-black opacity-50'
+        ></div>
+
+        <div className='lg:w-[60%] relative z-10'>
           <div className='h-200 px-9 py-4'>
+            
             <Image src={logo} alt='logo' height={130} width={130} />
+            
           </div>
           
             {currentSet === firstSet && (
@@ -113,10 +128,7 @@ const Page: React.FC = () => {
                 </h1>
               </motion.div>
             )}
-            
-
-         
-          {currentSet === secondSet && (
+           {currentSet === secondSet && (
             <motion.div
               initial={{ opacity: 0, y: -30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -134,11 +146,7 @@ const Page: React.FC = () => {
               </h1>
             </motion.div>
           )}
-         
-
-          
-
-          {currentSet === thirdSet && (
+         {currentSet === thirdSet && (
             <motion.div
               initial={{ opacity: 0, y: -30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -159,19 +167,23 @@ const Page: React.FC = () => {
           
         </div>
 
-        <div className='w-[40%]  bg-white'>
+        <div className='w-[40%] relative z-10 bg-black'>
           <div className='p-5 h-[46%] flex justify-center items-end'>
-            <h1 className='font-bold text-[32px] text-black'>Get started</h1>
+            <h1 className='font-bold text-[32px] text-white'>Get started</h1>
           </div>
           <div className='text-white flex justify-center'>
-            <Link href='./signin'>
+            <Link href='../auth/signin'>
               <button className='bg-[#3c46ff] px-16 py-3 rounded-md mr-1 hover:bg-[#0101ff]'>Log in</button>
             </Link>
             <Link href='./signup'>
               <button className='bg-[#3c46ff] px-16 py-3 rounded-md ml-1 hover:bg-[#0101ff]'>Sign up</button>
             </Link>
           </div>
+          <div className='absolute bottom-0'>
+        <Image src={mountaion} alt='mountain' className='h-full '/>
         </div>
+        </div>
+       
       </div>
     </>
   );

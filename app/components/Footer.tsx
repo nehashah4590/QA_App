@@ -67,12 +67,12 @@ const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
                     </div>
                     </form>
             </div>
-            <div className=' w-[60vw] mt-4 flex'>
-                <div className=' h-[300px] w-[200px] m-4 p-4'>
+            <div className=' w-[60vw] mt-4 px-10 grid md:grid-cols-[1fr,1fr,1fr]'>
+                <div className=' h-[300px] w-[200px] mt-6 p-2'>
                     <h2 className='font-bold text-yellow-500'>Email</h2>
                     <p className='text-sm text-gray-600 hover:text-gray-800 font-bold'>gptnepal@gmail.com</p>
                 </div>
-                <div className=' h-[300px] w-[200px] m-4 p-4'>
+                <div className=' h-[300px] w-[200px] mt-6 p-2'>
                     <h2 className='font-bold text-yellow-500'>Official Links</h2>
                     <p className='text-sm text-gray-600 hover:text-gray-800 font-bold'><Link href="https://ntb.gov.np/" target="_blank">Nepal Tourism Board</Link></p>
                     <p className='text-sm text-gray-600 hover:text-gray-800 font-bold'><Link href="https://www.greathimalayatrails.com/" target="_blank">Great Himalayan Trails</Link></p>
@@ -80,7 +80,7 @@ const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
                     <p className='text-sm text-gray-600 hover:text-gray-800 font-bold'><Link href="https://nepalairlines.com.np/" target="_blank">Nepal Airlines</Link></p>
                     <p className='text-sm text-gray-600 hover:text-gray-800 font-bold'><Link href="https://photo.ntb.gov.np/" target="_blank">Photo Nepal</Link></p>
                 </div>
-                <div className=' h-[300px] w-[200px] m-4 p-4'>
+                <div className=' h-[300px] w-[200px] mt-6 p-2'>
                     <h2 className='font-bold text-yellow-500'>Developers</h2>
                     <p className='text-sm text-gray-600 hover:text-gray-800 font-bold'>Neha Shah</p>
                     <p className='text-sm text-gray-600 hover:text-gray-800 font-bold'>Suraj Sharma</p>
