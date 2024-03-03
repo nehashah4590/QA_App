@@ -4,39 +4,26 @@ import {signIn, signOut, useSession} from "next-auth/react";
 import NextAuth from "next-auth"
 import { IoIosLogOut } from "react-icons/io";
 
-interface Session {
-    user: {
-      /** The user's postal address. */
-      picture: string
-    }
-  }
-
 
 const SigninButton =() => {
-
+ 
     const {data: session} = useSession();
-    console.log(session)
 
     if (session && session.user){
         return(
-            <div>
-                <div className='flex bg-red-500'>
-                    {<img className="w-[40px] h-[40px] rounded-full" 
-                    src={session.user.picture}/>}
-                    <p className='flex items-center pl-1 text-sm'>{session.user.name}</p>
+            <div >
+                <div className='flex w-[185px] rounded-lg hover:bg-gray-700 text-white m-1 '>
+                    {/* {<img className="w-[40px] h-[40px] rounded-full border-none" 
+                    src={session?.user?.picture}/>} */}
+                    <p className='flex items-center pl-1 text-sm py-2'>{session.user.name}</p>
                 </div>
                 <button
-                className='bg-gray-100 flex hover:bg-red-500 py-1 px-2 text-[15px] rounded-md m-2' 
-                 onClick={()=> signOut()}><IoIosLogOut className='mt-[3px] mr-1' />Sign out</button>
+                className='bg-gray-100 w-[185px] flex text-black hover:bg-red-500 hover:text-white py-2 px-4 text-sm rounded-md m-1' 
+                 onClick={()=> signOut()}><IoIosLogOut className='mt-[3px] mr-1 text-sm' />Sign out</button>
             </div>
         )
     }
-  return (
-    <div>
-        <button onClick={()=> signIn()}>Sign In</button>
-
-    </div>
-  )
+ 
 }
 
 export default SigninButton;

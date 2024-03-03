@@ -12,10 +12,10 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
 
   return (
     <main>
-        <div className="flex">
-          <div className={`bg-gray-500 h-screen p-5 pt-8 ${open? "w-72":"w-0 bg-slate-400"} duration-300 relative`}>
+        <div className="flex text-white">
+          <div className={` h-screen pt-8 ${open? "w-72 bg-gray-950":"w-0 bg-gray-900"} duration-300 relative`}>
             <IoMenu
-              className={`text-white text-4xl rounded-full absolute  top-5 p-2  hover:bg-gray-700 cursor-pointer ${open ? "":"bg-gray-400"}`} 
+              className={`text-white text-4xl rounded-full absolute  top-5 p-2  hover:bg-gray-700 cursor-pointer ${open ? "":"bg-gray-700"}`} 
               onMouseEnter={()=>setShowText(!showText)} 
               onMouseLeave={()=>setShowText(!showText)}
               onClick={() => setOpen(!open)}/>
@@ -30,7 +30,7 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
               </p>)}
               {open && <Navbar/>}
           </div> 
-          <div className="p-7 w-full bg-slate-400">
+          <div className=" w-full">
             {children}
           </div> 
         </div>
