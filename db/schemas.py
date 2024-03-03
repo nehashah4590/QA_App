@@ -16,6 +16,9 @@ class Question(BaseModel):
 class ResetPassword(Verification):
     password: str = Field(...)
 
+class Token(BaseModel):
+    token:str = Field(...)
+
 class UserParse:
     def __init__(self,user):
         self.user = user
