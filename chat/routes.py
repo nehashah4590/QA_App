@@ -16,15 +16,14 @@ class ChatRoutes:
     def setup_routes(self):
         self.router.post("/chat/", dependencies=[Depends(get_current_user)], tags=["Chat"])(self.chat)
         self.router.get("/history/", dependencies=[Depends(get_current_user)], tags=["Chat"])(self.chat_history)
-        self.router.post("/chatid/", dependencies=[Depends(get_current_user)], tags=["Chat ID"])(self.incre_chatid)
-        self.router.get("/chatids/", dependencies=[Depends(get_current_user)], tags = ["Chat ID"])(self.getid)
+        self.router.get("/chatid/history/", dependencies=[Depends(get_current_user)], tags =["Chat"])(self.chat_by_id)
 
     async def chat(self,question:Question, token: str = Depends(get_current_user), db = Depends(get_db)):
         user = await user_collection.find_one({ "email": token.get("email") })
         if not user:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail = "No user found")
 
-        response = await self.chat_crud.ask_question(question=question.question, user=user, chat_id= question.chat_id)
+        response = await self.chat_crud.ask_question(question=question.question, user=user)
         return response
 
     async def chat_history(self, token: str = Depends(get_current_user), db = Depends(get_db)):
@@ -33,17 +32,10 @@ class ChatRoutes:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No user found")
         response = await self.chat_crud.get_history(email=user["email"])
         return response
-
-    async def incre_chatid(self,chat_id,token:str = Depends(get_current_user)):
+        
+    async def chat_by_id(self, chatid, token:str = Depends(get_current_user), db = Depends(get_db)):
         user = await user_collection.find_one({"email": token.get("email")})
         if not user:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No user found")
-        response = await self.chat_crud.post_chatid(chatid=chat_id,email=user["email"])
-        return response
-
-    async def getid(self, token:str = Depends(get_current_user)):
-        user = await user_collection.find_one({"email": token.get("email")})
-        if not user:
-            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No user found")
-        response = await self.chat_crud.get_chatid(email=user["email"])
+        response = await self.chat_crud.get_history_by_id(chatid=chatid, email = user["email"])
         return response

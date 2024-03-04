@@ -10,7 +10,6 @@ class Verification(BaseModel):
     code: str = Field(...)
 
 class Question(BaseModel):
-    chat_id:int = Field(...)
     question: str = Field(...)
 
 class ResetPassword(Verification):

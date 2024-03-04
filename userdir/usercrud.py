@@ -90,18 +90,11 @@ class User:
         usr_parse = UserParse(user = user)
         parsed_data = await usr_parse.parsedata()
         token = await create_access_token(data = { "id": parsed_data["id"] })
-        chat = collection.load_chat_collection()
-        latest_chat = await chat.find_one({"email": parsed_data["email"]}, sort=[("date",-1)])
-        chat_id = 0
-        if latest_chat is not None:
-            # Return the chat_id of the latest entry
-            chat_id = int(latest_chat["chat_id"])
         user ={
              "access_token": token,
              "token_type": "bearer",
              "name":parsed_data["name"],
-             "email": parsed_data["email"],
-            "chat_id":chat_id+1
+             "email": parsed_data["email"]
              }
         return user
 

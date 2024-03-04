@@ -38,7 +38,3 @@ class Collection:
     def load_chat_collection(self):
         collection = self.db.get_collection("Chat")
         return collection
-
-    def load_chatid_collection(self):
-        collection = self.db.get_collection("ChatID")
-        return collection
