@@ -103,12 +103,13 @@ const LandingPageNav: React.FC<NavbarProps> = ({ section1Id, section2Id, section
                     Contact Us
                   </Link>
                 </li>
-                <button className="flex pl-4 ml-3 md:ml-0 bg-blue-950 rounded-sm hover:bg-white text-white  px-5 py-2 border border-blue-950 hover:text-blue-950">
-                  <Link href="/auth" prefetch={false}>
-                  <div className='flex justify-center items-center'>
-                  <p>Try GPTNepal</p> <p className='text-2xl pl-2'><MdArrowOutward/></p>
-                  </div>
-                  </Link>
+                <button className="flex items-center border bg-blue-950 cursor-pointer border-transparent text-white rounded-md px-8 py-2 font-bold hover:bg-blue-900">
+                   <Link href="/auth">
+                    <span className="flex items-center">
+                      Try GPTNepal
+                    <span className="text-2xl pl-1"><MdArrowOutward /></span>
+                    </span>
+                   </Link>
                 </button>
               </ul>
             </div>
