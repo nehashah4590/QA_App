@@ -16,10 +16,10 @@ const ChatPage = () => {
   const [firstLetter , setFirstLetter] = useState<string>('');
   const [questionSent, setQuestionSent] =  useState<string>('');
   const [historyData, setHistoryData] =  useState([]);
+  const [historyinChat, setShowHistoryinChat]  = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showHistory, setShowHistory] = useState(false);
+  const [showChat, setShowChat] = useState(false);
   
-
   const { data: session } = useSession();
   const token: string | undefined = session?.user?.access_token ;
   const chat_id: string | undefined = session?.user?.chat_id;
@@ -27,7 +27,7 @@ const ChatPage = () => {
 
   const searchParams = useSearchParams();
   const id = searchParams.get("value");
-  // console.log("id",chat_id)
+
 
   useEffect(() => {
 
@@ -42,7 +42,10 @@ const ChatPage = () => {
   }, [username,firstLetter]);
 
   useEffect(() => {
-    const axios = require('axios');
+    if(id as any === "0"){
+      setShowChat(false);
+    }else{
+      const axios = require('axios');
 
     let config = {
       method: 'get',
@@ -58,23 +61,26 @@ const ChatPage = () => {
     .then((response: any) => {
       console.log("idj",JSON.stringify(response.data));
       setHistoryData(response.data);
-      setShowHistory(true);
+      setShowChat(true);
+      setShowHistoryinChat(true);
       
     })
     .catch((error: any ) => {
       console.log(error);
     });
 
+    }
   },[token, id]);
 
   console.log("asdfew",historyData)
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    setShowHistoryinChat(false);
     setHistoryData([]);
     setQuestionSent(question);
     setQuestion('');
     setIsSubmitting(true);
-    setShowHistory(true);
+    setShowChat(true);
     e.preventDefault();
 
     const axios = require('axios');
@@ -110,10 +116,10 @@ const ChatPage = () => {
 
   };
 
-  if(showHistory === false){
+  if(showChat === false){
     return(
       <div className=" h-full">
-      <div className=' h-full  text-center text-gray-200 flex justify-center'>  
+      <div className=' h-full  text-center flex justify-center'>  
         <div className='w-[80vw] h-[90vh] px-[10vw] py-[10vh] mt-10  overflow-y-auto box'> 
           <h1 className='text-5xl py-1'>Hello, {name}</h1>
           <h1 className='text-3xl'>How can you help you today?</h1>
@@ -124,12 +130,12 @@ const ChatPage = () => {
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
             placeholder="Message NepalGPT..."
-            className="border  w-[50vw] h-[50px] flex justify-center border-gray-400 bg-gray-900 px-4 py-2 rounded-xl focus:outline-none focus:border-white"
+            className="border  w-[50vw] h-[50px] flex justify-center border-gray-400 bg-transparent px-4 py-2 rounded-xl focus:outline-none focus:border-gray-600"
           />
           {(question || questionSent )&&
             <motion.div animate={{ x: -10 }} className=' absolute top-2 right-1 '>
               <button type="submit"
-               className={`rounded-lg p-2 bg-gray-900 text-white ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
+               className={`rounded-lg p-2  ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
                disabled={isSubmitting}>
                 <IoSendSharp />
               </button>
@@ -142,10 +148,10 @@ const ChatPage = () => {
   }else{
   return (
     <div className=" h-full">
-      <div className='h-full  text-center text-gray-200 flex justify-center'>    
+      <div className='h-full  text-center flex justify-center'>    
         <div className='w-[80vw] h-[90vh] px-[10vw] py-[10vh]  overflow-y-auto box'>
         <div className='flex flex-col text-left  px-12'>
-         {(historyData && !questionSent) &&
+         {historyinChat ?
           <>
           <div className='flex items-center'>
           <p className='pt-[4px] mx-4 rounded-lg bg-green-500 h-[30px] w-[30px] text-center font-semibold '>{firstLetter}</p>
@@ -155,10 +161,10 @@ const ChatPage = () => {
           <Image className='pt-[4px] mx-4 mt-1 rounded-lg bg-white p-1 h-[30px] w-[30px] text-center font-semibold ' src={icon} alt='icon'/>
           <p className='text-sm'>{historyData?.answer}</p>
           </div>
-          </>
+          </>:<></>
         }
 
-         {questionSent && (<>
+         {(questionSent && !historyinChat)&& (<>
          <div className='flex items-center'>
           <p className='pt-[4px] mx-4 rounded-lg bg-green-500 h-[30px] w-[30px] text-center font-semibold '>{firstLetter}</p>
           <p className='text-sm py-4'>{questionSent}</p>
@@ -166,12 +172,12 @@ const ChatPage = () => {
          </>
          )}
   
-        <div className='flex items-start mt-4'>
-        {historyData &&<Image className='pt-[4px] mx-4 mt-1 rounded-lg bg-white p-1 h-[30px] w-[30px] text-center font-semibold ' src={icon} alt='icon'/>   }
+        {!historyinChat &&<div className='flex items-start mt-4'>
+          {(!historyinChat || questionSent)&&<Image className='pt-[4px] mx-4 mt-1 rounded-lg bg-white p-1 h-[30px] w-[30px] text-center font-semibold ' src={icon} alt='icon'/> }
           <SkeletonTheme baseColor="#202020" highlightColor="#444"> 
             {isSubmitting ? <p className='w-full'><Skeleton count={10}/></p>:<p className='text-sm'>{answer}</p> }
           </SkeletonTheme> 
-         </div>
+         </div>}
         
          </div>     
         </div>
@@ -182,13 +188,13 @@ const ChatPage = () => {
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
             placeholder="Message NepalGPT..."
-            className="border  w-[50vw] h-[50px] flex justify-center border-gray-400 bg-gray-900 px-4 py-2 rounded-xl focus:outline-none focus:border-white"
+            className="border  w-[50vw] h-[50px] flex justify-center border-gray-400 bg-transparent px-4 py-2 rounded-xl focus:outline-none focus:border-gray-600"
 
           />
           {(question || questionSent ) &&
             <motion.div animate={{ x: -10 }} className=' absolute top-2 right-1 '>
               <button type="submit"
-               className={`rounded-lg p-2 bg-gray-900 text-white ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
+               className={`rounded-lg p-2  ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
                disabled={isSubmitting}>
                 <IoSendSharp />
               </button>
