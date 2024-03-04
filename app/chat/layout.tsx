@@ -60,8 +60,13 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
         method: 'post',
         maxBodyLength: Infinity,
         url: `${process.env.NEXT_PUBLIC_HOST}/clear/`,
+<<<<<<< HEAD
         headers: {
           'Accept': 'application/json',
+=======
+        headers: { 
+          'Accept': 'application/json', 
+>>>>>>> fd816c873f1fa954726fb71991eba6634c3efbf9
           'Authorization': `Bearer ${token}`
         }
       };
@@ -123,7 +128,11 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
               <div className="mt-2">
               <button
               onClick={handleClearChat}
+<<<<<<< HEAD
                className='flex rounded-lg text-start hover:bg-gray-700  text-sm px-4 pl-2 py-3 w-[80%] ml-2 mt-2'>
+=======
+               className='flex rounded-lg text-start hover:bg-gray-700  text-sm px-4 pl-2 py-3 w-[80%] ml-2 mt-2'> 
+>>>>>>> fd816c873f1fa954726fb71991eba6634c3efbf9
                 <ImBin className='mx-2 mt-[1px]'/> Clear Chats
               </button>
               </div>
@@ -148,8 +157,13 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
               </div>
             </nav>)}
         </div>
+<<<<<<< HEAD
         <div className={` w-full ${lightMode ? ' text-black bg-white': "text-gray-200 bg-gray-900"}`}>
           {children }
+=======
+        <div className={` w-full ${lightMode ? ' text-black bg-white': "text-gray-200 bg-gray-900"}`}>  
+          {children } 
+>>>>>>> fd816c873f1fa954726fb71991eba6634c3efbf9
         </div>
       </div>
     </main>
