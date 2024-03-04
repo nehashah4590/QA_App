@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, useEffect } from 'react';
-import { FaPlus } from "react-icons/fa";
+
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import {usePathname} from 'next/navigation';
@@ -50,11 +50,7 @@ const NewChat = () => {
 
   return (
     <div >
-      <button
-        onClick={handleNewChat}
-        className='flex items-center justify-center rounded-lg text-start hover:bg-gray-700  text-sm px-4 py-3 w-[200px]'>
-        <FaPlus className='mx-2' /> New Chat
-      </button>
+    
     </div>
   )
 }

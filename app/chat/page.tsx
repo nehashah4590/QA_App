@@ -4,6 +4,7 @@ import { IoSendSharp } from "react-icons/io5";
 import { motion } from "framer-motion";
 import { useSession } from 'next-auth/react';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import { useSearchParams } from 'next/navigation';
 import "react-loading-skeleton/dist/skeleton.css";
 import Image from 'next/image';
 import icon from "../icon.png";
@@ -14,7 +15,7 @@ const ChatPage = () => {
   const [name, setName] = useState<string>('');
   const [firstLetter , setFirstLetter] = useState<string>('');
   const [questionSent, setQuestionSent] =  useState<string>('');
-  const [data, setData] =  useState([]);
+  const [historyData, setHistoryData] =  useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showHistory, setShowHistory] = useState(false);
   
@@ -23,6 +24,9 @@ const ChatPage = () => {
   const token: string | undefined = session?.user?.access_token ;
   const chat_id: string | undefined = session?.user?.chat_id;
   const username = session?.user?.name;
+
+  const searchParams = useSearchParams();
+  const id = searchParams.get("value");
   // console.log("id",chat_id)
 
   useEffect(() => {
@@ -43,7 +47,7 @@ const ChatPage = () => {
     let config = {
       method: 'get',
       maxBodyLength: Infinity,
-      url: `${process.env.NEXT_PUBLIC_HOST}/history/`,
+      url: `${process.env.NEXT_PUBLIC_HOST}/chatid/history/?chatid=${id}`,
       headers: { 
         'Accept': 'application/json', 
         'Authorization': `Bearer ${token}`
@@ -52,17 +56,21 @@ const ChatPage = () => {
 
     axios.request(config)
     .then((response: any) => {
-      console.log(JSON.stringify(response.data));
-      setData(response.data);
+      console.log("idj",JSON.stringify(response.data));
+      setHistoryData(response.data);
+      setShowHistory(true);
       
     })
     .catch((error: any ) => {
       console.log(error);
     });
 
-  },[token]);
+  },[token, id]);
+
+  console.log("asdfew",historyData)
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    setHistoryData([]);
     setQuestionSent(question);
     setQuestion('');
     setIsSubmitting(true);
@@ -104,8 +112,8 @@ const ChatPage = () => {
 
   if(showHistory === false){
     return(
-      <div className=" h-full text-white">
-      <div className='bg-gray-900 h-full  text-center text-gray-200 flex justify-center'>  
+      <div className=" h-full">
+      <div className=' h-full  text-center text-gray-200 flex justify-center'>  
         <div className='w-[80vw] h-[90vh] px-[10vw] py-[10vh] mt-10  overflow-y-auto box'> 
           <h1 className='text-5xl py-1'>Hello, {name}</h1>
           <h1 className='text-3xl'>How can you help you today?</h1>
@@ -134,21 +142,21 @@ const ChatPage = () => {
   }else{
   return (
     <div className=" h-full">
-      <div className='bg-gray-900 h-full  text-center text-gray-200 flex justify-center'>    
+      <div className='h-full  text-center text-gray-200 flex justify-center'>    
         <div className='w-[80vw] h-[90vh] px-[10vw] py-[10vh]  overflow-y-auto box'>
         <div className='flex flex-col text-left  px-12'>
-         {/* {data.map((item) => (
+         {(historyData && !questionSent) &&
           <>
           <div className='flex items-center'>
           <p className='pt-[4px] mx-4 rounded-lg bg-green-500 h-[30px] w-[30px] text-center font-semibold '>{firstLetter}</p>
-          <p className='text-sm py-4'>{item.question}</p>
+          <p className='text-sm py-4'>{historyData?.question}</p>
          </div>
           <div className='flex items-start mt-4'>
           <Image className='pt-[4px] mx-4 mt-1 rounded-lg bg-white p-1 h-[30px] w-[30px] text-center font-semibold ' src={icon} alt='icon'/>
-          <p className='text-sm'>{item.answer}</p>
+          <p className='text-sm'>{historyData?.answer}</p>
           </div>
           </>
-        ))} */}
+        }
 
          {questionSent && (<>
          <div className='flex items-center'>
@@ -159,7 +167,7 @@ const ChatPage = () => {
          )}
   
         <div className='flex items-start mt-4'>
-          <Image className='pt-[4px] mx-4 mt-1 rounded-lg bg-white p-1 h-[30px] w-[30px] text-center font-semibold ' src={icon} alt='icon'/>    
+        {historyData &&<Image className='pt-[4px] mx-4 mt-1 rounded-lg bg-white p-1 h-[30px] w-[30px] text-center font-semibold ' src={icon} alt='icon'/>   }
           <SkeletonTheme baseColor="#202020" highlightColor="#444"> 
             {isSubmitting ? <p className='w-full'><Skeleton count={10}/></p>:<p className='text-sm'>{answer}</p> }
           </SkeletonTheme> 
