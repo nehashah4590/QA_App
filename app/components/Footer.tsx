@@ -13,11 +13,12 @@ const Footer: React.FC = () => {
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log("clicked")
 
-    emailjs
-      .sendForm('service_aof4b3u', 'template_82hn20i', form.current as any, {
-        publicKey: 'YOUR_PUBLIC_KEY',
-      })
+   emailjs
+        .sendForm('service_wmd5z3d', 'template_dtrnxhj', form.current as any, {
+          publicKey: 'NILQEGhMXNzKVtWNN',
+        })
       .then(
         () => {
           console.log('SUCCESS!');
@@ -27,11 +28,13 @@ const Footer: React.FC = () => {
         },
       );
   }
+
+  
   return (
     <div className='bg-gray-100 h-[70vh] w-full relative'>
       <div className='flex '>
         <div className='w-[40vw] '>
-          <form ref={form} onSubmit={sendEmail} className="max-w-md mx-auto bg-white  p-4 px-14 m-2 mt-8  ">
+          <form ref={form} onSubmit={sendEmail} className="max-w-md mx-auto bg-white relative p-4 px-14 m-2 mt-8 h-[450px] ">
             <p className='text-2xl font-bold p-4 text-center text-[#fcce1c]'>Contact Us</p>
             <div className="mb-4">
               <label htmlFor="name" className="block text-gray-700 text-sm mb-1">Name</label>
@@ -64,7 +67,7 @@ const Footer: React.FC = () => {
               />
             </div>
             <div className="text-center ">
-              <button type="submit" value="send" className="z-10 bg-[#da123c] text-white px-6 py-2 rounded-md  hover:bg-white hover:text-[#da123c] border border-[#da123c]">Submit</button>
+              <button type="submit" value="send" className="z-10 absolute bottom-10 left-16 bg-[#da123c] text-white px-6 py-2 rounded-md  hover:bg-white hover:text-[#da123c] border border-[#da123c]">Submit</button>
             </div>
           </form>
         </div>
