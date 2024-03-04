@@ -17,7 +17,7 @@ const Research = () => {
              whileInView={{ opacity: 1, x: 0 }}
              viewport={{ once: true }}
              className='font-bold text-lg text-[#da123c] py-2 '>How it started?</motion.h2>
-            <div className=' flex justify-center items-center gap-12 text-sm text-justify'>
+            <div className=' flex justify-center items-center gap-12 text-gray-500 text-sm text-justify'>
              <div>
              <motion.p 
               initial={{ opacity: 0, y: 200 }}
