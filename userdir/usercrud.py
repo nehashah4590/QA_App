@@ -144,7 +144,3 @@ class User:
                 raise HTTPException(status_code = status.HTTP_501_NOT_IMPLEMENTED, detail = "Wrong verification code")
         except Exception as e:
             raise HTTPException(status_code = status.HTTP_500_INTERNAL_SERVER_ERROR, detail = str(e))
-
-
-    async def create_user_google(self, token):
-        pass

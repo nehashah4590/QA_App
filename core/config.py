@@ -10,7 +10,6 @@ class Setting(BaseSettings):
     SECRET_KEY : str
     SECRET_ALGORITHM : str
     TOKEN_EXPIRY_DAYS : int
-    GOOGLE_CLIENT_ID : str
 
     class Config:
         env_file = ".env"

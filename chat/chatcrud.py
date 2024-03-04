@@ -45,4 +45,11 @@ class CRUD:
         if chat_data is None:
             raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="No such id found")
         return {"question":chat_data["question"],"answer":chat_data["answer"],"chatid":chat_data["chat_id"]}
-        
+
+    async def delete_history(self,email):
+        history = chat.find({"email":email})
+        if history is None:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No chat found for the authenticated user")
+        result = await chat.delete_many({"email":email})
+        print(result.deleted_count)
+        return JSONResponse(status_code=status.HTTP_200_OK, content="Deleted successfully")

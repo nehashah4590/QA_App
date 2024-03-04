@@ -17,6 +17,7 @@ class ChatRoutes:
         self.router.post("/chat/", dependencies=[Depends(get_current_user)], tags=["Chat"])(self.chat)
         self.router.get("/history/", dependencies=[Depends(get_current_user)], tags=["Chat"])(self.chat_history)
         self.router.get("/chatid/history/", dependencies=[Depends(get_current_user)], tags =["Chat"])(self.chat_by_id)
+        self.router.delete("/clear/", dependencies=[Depends(get_current_user)], tags=["Chat"])(self.del_history)
 
     async def chat(self,question:Question, token: str = Depends(get_current_user), db = Depends(get_db)):
         user = await user_collection.find_one({ "email": token.get("email") })
@@ -38,4 +39,11 @@ class ChatRoutes:
         if not user:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No user found")
         response = await self.chat_crud.get_history_by_id(chatid=chatid, email = user["email"])
+        return response
+
+    async def del_history(self, token: str = Depends(get_current_user), db = Depends(get_db)):
+        user = await user_collection.find_one({"email":token.get("email")})
+        if not user:
+            raise HTTPException(status_code = status.HTTP_404_NOT_FOund, detail="No user found")
+        response = await self.chat_crud.delete_history(email=user["email"])
         return response

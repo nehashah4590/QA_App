@@ -18,7 +18,6 @@ class UserRoutes:
         self.router.post("/verify/", tags = ['User Authentication'])(self.verify)
         self.router.post("/reset/code/", tags = ["Forgot Password"])(self.forgot_pwd)
         self.router.post("/reset/password/", tags = ["Forgot Password"])(self.reset_pwd)
-        self.router.post("/google/token/", tags = ["User Creation by Google"])(self.receive_token)
 
     async def create_user(self, user:UserModel = Body(...), db = Depends(get_db)):
         #converting the pydantic model into json compatible dictionary
@@ -43,8 +42,4 @@ class UserRoutes:
 
     async def reset_pwd(self, reset: ResetPassword = Body(...), db = Depends(get_db)):
         response = await self.user.reset_password(reset = reset)
-        return response
-
-    async def receive_token(self,token:Token, db = Depends(get_db)):
-        response = await self.user.create_user_google(token = token)
         return response
