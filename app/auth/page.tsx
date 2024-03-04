@@ -121,7 +121,7 @@ const Page: React.FC = () => {
                 <h1 className='font-extrabold text-[40px]  text-[#da123c]'>
                   {currentSet.heading}
                   <p>
-                    <span className='font-normal text-[40px] text-[#fbcc1c]'>
+                    <span className='font-light text-[40px] text-[#fbcc1c]'>
                       <Typewriter key={typewriterKey} texts={currentSet.applicationNames} onTypingComplete={handleTypingComplete} />
                     </span>
                   </p>
@@ -139,7 +139,7 @@ const Page: React.FC = () => {
               <h1 className='font-extrabold text-[40px]  text-[#da123c]'>
                 {currentSet.heading}
                 <p>
-                  <span className='font-normal text-[40px] text-[#fbcc1c]'>
+                  <span className='font-light text-[40px] text-[#fbcc1c]'>
                     <Typewriter key={typewriterKey} texts={currentSet.applicationNames} onTypingComplete={handleTypingComplete} />
                   </span>
                 </p>
@@ -157,7 +157,7 @@ const Page: React.FC = () => {
               <h1 className='font-extrabold text-[40px]  text-[#da123c]'>
                 {currentSet.heading}
                 <p>
-                  <span className='font-normal text-[40px] text-[#fbcc1c]'>
+                  <span className='font-light text-[40px] text-[#fbcc1c]'>
                     <Typewriter key={typewriterKey} texts={currentSet.applicationNames} onTypingComplete={handleTypingComplete} />
                   </span>
                 </p>
@@ -169,7 +169,7 @@ const Page: React.FC = () => {
 
         <div className='w-[40%] relative z-10 bg-gray-900'>
           <div className='p-5 h-[46%] flex justify-center items-end'>
-            <h1 className='font-bold text-[32px] text-white'>Get started</h1>
+            <h1 className='font-bold text-[32px] text-white '>Get started</h1>
           </div>
           <div className='text-white flex justify-center'>
             <Link href='../auth/signin'>

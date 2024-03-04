@@ -68,7 +68,7 @@ const Footer: React.FC = () => {
             </div>
           </form>
         </div>
-        <div className=' w-[60vw] mt-4 flex'>
+        <div className=' w-[60vw] mt-4 gap-24 flex'>
           <div className=' h-[300px] w-[200px] m-4 p-4'>
               <Link href="/" prefetch={false}>
                 <Image height={150} width={150} src={logo} loading="eager" alt="logo"></Image>
