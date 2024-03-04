@@ -8,18 +8,18 @@ import SigninButton from './SigninButton';
 
 const Navbar = () => {
   return (
-    <nav className=" h-full flex flex-col w-full p-1">
+    <nav className=" h-full flex flex-col w-full p-1 pl-2 ml-2">
    
-      <div className='flex  w-full h-[50px] py-2 mt-10 '>
+      <div className='flex  w-full h-[50px] py-2 mt-10 mb-2  '>
         <NewChat/>
       </div>
       
-      <div className='pl-5 py-2 w-full h-[50vh] overflow-y-auto '>
+      <div className='p-2 w-full h-[50vh] overflow-y-auto '>
         <History/>
       </div>
     
       <div>
-        <ClearChat/>
+        <ClearChat />
       </div>
 
       <div>

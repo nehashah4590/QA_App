@@ -5,8 +5,10 @@ import { useSession } from "next-auth/react";
 const History = () => {
   const { data: session } = useSession();
   const [data, setData] = useState([]);
+  const [filteredDataOne, setFilteredDataOne] = useState([]);
+  const [filteredDataTwo, setFilteredDataTwo] = useState([]);
+
   const token = session?.user?.access_token;
-  const username = session?.user?.name;
 
   useEffect(() => {
     const axios = require('axios');
@@ -25,6 +27,7 @@ const History = () => {
     .then((response: any) => {
       console.log(JSON.stringify(response.data));
       setData(response.data);
+      
     })
     .catch((error: any ) => {
       console.log(error);
@@ -32,15 +35,31 @@ const History = () => {
 
   },[token]);
 
+ useEffect(()=>{
+  
+    const filtered = data.filter(item => item?.chat_id ==1);
+      setFilteredDataOne(filtered);
+      const filtered2 = data.filter(item => item?.chat_id == 2);
+      setFilteredDataTwo(filtered2);
+      console.log("1",filteredDataOne)
+      console.log("2",filteredDataTwo)
+      console.log("data",data)
+
+ },[data])
+
   return (
-    <div className="flex overflow-y-auto">
-     <ul>
-        {data.map((item, index) => (
-          <li key={index}>
-            {item?.question}
-          </li>
-        ))}
-      </ul>
+    <div className=" overflow-y-auto">
+     {/* {data.map((item) => (
+        <button key={item?.chat_id} className="flex hover:bg-gray-700 text-white  py-2 px-4 m-1  rounded">
+          {item?.question}
+        </button>
+      ))} */}
+      <button className="flex hover:bg-gray-700 text-white  py-2 px-4 my-1  rounded">
+          {filteredDataOne?.question}
+      </button>
+      <button className="flex hover:bg-gray-700 text-white  py-2 px-4 my-1  rounded">
+          {filteredDataTwo?.question}
+      </button>
     </div>
   )
 }

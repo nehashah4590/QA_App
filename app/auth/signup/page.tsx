@@ -13,7 +13,7 @@ const  SignuPage:React.FC  = () => {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState('');
   const router = useRouter();
   const session = useSession();
   console.log(session);
@@ -41,10 +41,10 @@ const  SignuPage:React.FC  = () => {
       console.log(response.data);
       setLoading(false);
       router.push('./enter-code')
-    } catch (error) {
+    } catch (error: any) {
       console.error('Registration failed:', error);
       setLoading(false);
-      setError(true);
+      setError(error.response.data.detail);
     }
 
   }
@@ -108,7 +108,7 @@ const  SignuPage:React.FC  = () => {
                   {showPassword && <button type='button' onClick={() => setShowPassword(!showPassword)}><AiFillEye  /></button>}
                 </div>
               </div>
-              {error && <p className='text-red-500 pb-3 '> Registration failed </p>}
+              {error && <p className='text-red-500 pb-3 '> {error} </p>}
               <button
                 type="submit"
                 className="bg-blue-950 w-full hover:bg-blue-900  text-white font-medium tracking-wider py-2 rounded-md px-4 border border-transparent"

@@ -15,7 +15,7 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
         <div className="flex text-white">
           <div className={` h-screen pt-8 ${open? "w-72 bg-gray-950":"w-0 bg-gray-900"} duration-300 relative`}>
             <IoMenu
-              className={`text-white text-4xl rounded-full absolute  top-5 p-2  hover:bg-gray-700 cursor-pointer ${open ? "":"bg-gray-700"}`} 
+              className={`text-white text-4xl rounded-full absolute  top-5 p-2 ml-2  hover:bg-gray-700 cursor-pointer ${open ? "":"bg-gray-700"}`} 
               onMouseEnter={()=>setShowText(!showText)} 
               onMouseLeave={()=>setShowText(!showText)}
               onClick={() => setOpen(!open)}/>
