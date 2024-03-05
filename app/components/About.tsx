@@ -1,8 +1,7 @@
 "use client"
 import React from 'react'
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { useFollowPointer } from "../use-follow-pointer";
 import Image from 'next/image';
 import Lumbini from "../../public/images/lumbini.jpg"
 import Patan from "../../public/images/patan.jpg"
@@ -14,21 +13,9 @@ import Typewriter from './Typewritting';
 
 
 const About = () => {
-    const [showText, setShowText] = useState(false);
-    const [showTextktm, setShowTextktm] = useState(false);
-    const [showTextann, setShowTextann] = useState(false);
-    const [showTextchi, setShowTextchi] = useState(false);
-    const ref = useRef(null);
-    const [selectedId, setSelectedId] = useState(null)
-    const { x, y } = useFollowPointer(ref);
+    
     return (
         <div className='flex flex-col justify-center  items-center'>
-            {/* <motion.div
-        ref={ref}
-        className="bg-pink-800 h-[20px] w-[20px] rounded-full absolute"
-        animate={{ x, y }}
-        /> */}
-            {/* About GPT Nepal */}
 
             <div className='h-[74vh] w-[80vw] gap-8  p-4  m-4 flex  justify-center'>
             <motion.div
@@ -36,14 +23,14 @@ const About = () => {
           transition={{ duration: 1 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-                className='w-[40vw]  p-4'>
-                    <h1 className='text-2xl text-[#fcce1c] font-extrabold pt-14'>GPT Nepal</h1>
-                    <p className='pt-2 text-justify text-gray-500 text-sm '>
+                className='w-[40vw]  p-6 '>
+                    <h1 className='text-2xl text-[#fcce1c] font-extrabold pt-14 text-center'>GPT Nepal</h1>
+                    <p className='pt-2 text-justify text-gray-500 text-sm  '>
                         We are excited to introduce GPT Nepal, a pioneering AI companion designed to serve as your personal guide during your journey through Nepal. Our mission is to provide comprehensive assistance to travelers by offering a wealth of knowledge about Nepal's attractions and amenities.
 
                         With the advent of GPT Nepal, tourists can now confidently embark on solo adventures and significantly reduce expenses typically associated with hiring traditional tour guides.
                     </p>
-                    <div className='text-[#da123c] font-bold text-justify'>
+                    <div className='text-[#da123c] font-bold  px-2 text-center'>
                     <motion.h1 
                      initial={{ opacity: 0, y: 20 }}
                      transition={{ duration: 1 }}
@@ -58,7 +45,7 @@ const About = () => {
              transition={{ duration: 1 }}
              whileInView={{ opacity: 1, x: 0 }}
              viewport={{ once: true }} 
-                className='bg-gray-100 rounded-md shadow-md w-[28vw] h-[48vh] p-4 relative mt-12'>
+                className='bg-gray-100 rounded-md shadow-md w-[520px] h-[410px] p-4 relative mt-12 flex justify-center items-center'>
                     <Image src={Lumbini} alt='lumbini' className='h-[380px] w-[500px] object-cover' />
                 </motion.div>
 

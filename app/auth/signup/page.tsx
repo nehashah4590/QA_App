@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { AiFillEyeInvisible, AiFillEye } from 'react-icons/ai';
-import { FcGoogle } from "react-icons/fc";
+import Image from 'next/image';
+import logo from '../../../public/images/logo.png'
 import { signIn, useSession } from 'next-auth/react';
 import Link from 'next/link';
 import axios from 'axios';
@@ -51,7 +52,10 @@ const  SignuPage:React.FC  = () => {
 
   return (
     <>
-        <div className="flex flex-col items-center justify-center min-h-screen ">
+        <div className="flex flex-col items-center justify-center min-h-screen">
+        <div className='absolute top-8'>
+        <Image height={100} width={100} src={logo} loading="eager" alt="logo"></Image>
+        </div>
           <h1 className='font-bold text-3xl mb-4'>Create your account</h1>
           <div className="w-[400px] py-5 px-6 ">
             <form onSubmit={handleSubmit}>
@@ -122,14 +126,6 @@ const  SignuPage:React.FC  = () => {
           </div>
           <div className=' p-2'>
             <p className='text-center pb-4'>Already Have an account? <Link href='./signin' className='text-blue-500'>Log in</Link></p>
-            <h1 className='text-center m-2 '><hr/></h1>
-            <div className='mt-4'>
-              <button
-              className='hover:bg-gray-200 py-4 px-20 border-2 rounded-md flex justify-center items-center'
-               onClick={()=>signIn("google")}
-               >
-                <div className=' px-2 text-3xl'><FcGoogle /></div>Continue with google</button>
-            </div>
           </div>
         </div>
     </>

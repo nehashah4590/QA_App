@@ -1,6 +1,6 @@
 "use client"
 import Link from 'next/link';
-import { useState} from 'react';
+import { useState, useEffect} from 'react';
 import logo from "../../public/images/logo.png";
 import Image from 'next/image';
 import styles from '../Line.module.css';
@@ -17,11 +17,27 @@ interface NavbarProps {
 
 const LandingPageNav: React.FC<NavbarProps> = ({ section1Id, section2Id, section3Id , section4Id, section5Id}) => {
   const [navbar, setNavbar] = useState(false);
+  const [scrolling, setScrolling] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolling(true);
+      } else {
+        setScrolling(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <>
-      <nav className='w-[100vw] text-white '>
-        <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
+      <nav className={`z-50  w-[100vw] text-white ${scrolling ? 'bg-gray-800 shadow-lg' : 'bg-transparent'}`}>
+        <div className="justify-between  mx-auto lg:max-w-7xl md:items-center md:flex py-1 ">
           <div>
             <div className="flex items-center justify-between py-2 md:py-1 md:block ">
              <div className=''>
@@ -74,7 +90,7 @@ const LandingPageNav: React.FC<NavbarProps> = ({ section1Id, section2Id, section
               className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${navbar ? 'block' : 'hidden'
                 }`}
             >
-              <ul className=" items-center text-sm font-semibold tracking-[1px] space-y-8 p-3 pr-0 md:flex md:space-x-6 md:space-y-0 justify-end ">
+              <ul className=" items-center text-sm font-semibold tracking-[2px] space-y-8 p-3 pr-0 md:flex md:space-x-8 md:space-y-0 justify-end ">
                 <li className="pl-4">
                     <div className='mr-1 '>
                       <Link href={`#${section1Id}`} 	prefetch={false} className={styles.link}>
@@ -103,9 +119,9 @@ const LandingPageNav: React.FC<NavbarProps> = ({ section1Id, section2Id, section
                     Contact Us
                   </Link>
                 </li>
-                <button className="flex items-center border bg-blue-950 cursor-pointer border-transparent text-white rounded-md px-8 py-2 font-bold hover:bg-blue-900">
+                <button className="flex tracking-[1px] items-center border bg-blue-950 cursor-pointer border-transparent text-white rounded-sm px-8 py-2 font-bold hover:bg-white hover:text-black">
                    <Link href="/auth">
-                    <span className="flex items-center">
+                    <span className="flex items-center ">
                       Try GPTNepal
                     <span className="text-2xl pl-1"><MdArrowOutward /></span>
                     </span>

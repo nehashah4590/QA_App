@@ -8,14 +8,9 @@ import { CiDark } from "react-icons/ci";
 import { ImBin } from "react-icons/im";
 import { useRouter } from 'next/navigation';
 import {usePathname} from 'next/navigation';
-
-// import NewChat from './NewChat';
 import SigninButton from '../components/SigninButton';
-interface RootLayoutProps {
-  children: React.ReactNode;
-}
 
-export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
+export default function RootLayout({ children}) {
   const [open, setOpen] = useState(true);
   const [showText, setShowText] = useState(false);
   const [lightMode, setLightMode] = useState(false);
@@ -26,8 +21,7 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
   const currentPage = usePathname();
   const { data: session } = useSession();
   const token = session?.user?.access_token;
-
-
+  
   useEffect(() => {
     const axios = require('axios');
 
@@ -42,12 +36,12 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
     };
 
     axios.request(config)
-    .then((response: any) => {
+    .then((response) => {
       console.log(JSON.stringify(response.data));
       setHistoryData(response.data);
 
     })
-    .catch((error: any ) => {
+    .catch((error ) => {
       console.log(error);
     });
 
@@ -57,26 +51,21 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
 
     const axios = require('axios');
       let config = {
-        method: 'post',
+        method: 'delete',
         maxBodyLength: Infinity,
         url: `${process.env.NEXT_PUBLIC_HOST}/clear/`,
-<<<<<<< HEAD
         headers: {
           'Accept': 'application/json',
-=======
-        headers: { 
-          'Accept': 'application/json', 
->>>>>>> fd816c873f1fa954726fb71991eba6634c3efbf9
           'Authorization': `Bearer ${token}`
         }
       };
 
       axios.request(config)
-      .then((response: any) => {
+      .then((response) => {
         console.log(JSON.stringify(response.data));
-        setClearHistory(true);
+        setClearHistory(!clearHistory);
       })
-      .catch((error: any) => {
+      .catch((error) => {
         console.log(error);
       });
 
@@ -128,11 +117,7 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
               <div className="mt-2">
               <button
               onClick={handleClearChat}
-<<<<<<< HEAD
-               className='flex rounded-lg text-start hover:bg-gray-700  text-sm px-4 pl-2 py-3 w-[80%] ml-2 mt-2'>
-=======
                className='flex rounded-lg text-start hover:bg-gray-700  text-sm px-4 pl-2 py-3 w-[80%] ml-2 mt-2'> 
->>>>>>> fd816c873f1fa954726fb71991eba6634c3efbf9
                 <ImBin className='mx-2 mt-[1px]'/> Clear Chats
               </button>
               </div>
@@ -157,13 +142,8 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
               </div>
             </nav>)}
         </div>
-<<<<<<< HEAD
-        <div className={` w-full ${lightMode ? ' text-black bg-white': "text-gray-200 bg-gray-900"}`}>
-          {children }
-=======
         <div className={` w-full ${lightMode ? ' text-black bg-white': "text-gray-200 bg-gray-900"}`}>  
           {children } 
->>>>>>> fd816c873f1fa954726fb71991eba6634c3efbf9
         </div>
       </div>
     </main>

@@ -9,20 +9,35 @@ import "react-loading-skeleton/dist/skeleton.css";
 import Image from 'next/image';
 import icon from "../icon.png";
 
+interface HistoryItem {
+  question: string;
+  answer: string;
+  // Add other properties if there are more in your actual data
+}
+interface User {
+  access_token?: string;
+  chat_id?: string;
+  // Add other properties if there are more in your actual data
+}
+interface Session {
+  user: User;
+  // Add other properties if there are more in your actual data
+}
+
 const ChatPage = () => {
   const [question, setQuestion] = useState<string>('');
   const [answer, setAnswer] = useState<string>('');
   const [name, setName] = useState<string>('');
   const [firstLetter , setFirstLetter] = useState<string>('');
   const [questionSent, setQuestionSent] =  useState<string>('');
-  const [historyData, setHistoryData] =  useState([]);
+  const [historyData, setHistoryData] =  useState<HistoryItem | null>(null);
   const [historyinChat, setShowHistoryinChat]  = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showChat, setShowChat] = useState(false);
   
-  const { data: session } = useSession();
-  const token: string | undefined = session?.user?.access_token ;
-  const chat_id: string | undefined = session?.user?.chat_id;
+  const { data: session } = useSession<Session | any>();
+  const token = session?.user?.access_token ;
+  const chat_id = session?.user?.chat_id;
   const username = session?.user?.name;
 
   const searchParams = useSearchParams();
@@ -76,7 +91,7 @@ const ChatPage = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     setShowHistoryinChat(false);
-    setHistoryData([]);
+    setHistoryData(null);
     setQuestionSent(question);
     setQuestion('');
     setIsSubmitting(true);
@@ -103,7 +118,7 @@ const ChatPage = () => {
 
     axios.request(config)
       .then((response: any) => {
-        console.log(JSON.stringify(response.data));
+        console.log(JSON.stringify("heloifjwe",response.data));
         console.log('Submitted question:', questionSent);
         setAnswer(response.data.answer)
         setIsSubmitting(false);
@@ -122,7 +137,7 @@ const ChatPage = () => {
       <div className=' h-full  text-center flex justify-center'>  
         <div className='w-[80vw] h-[90vh] px-[10vw] py-[10vh] mt-10  overflow-y-auto box'> 
           <h1 className='text-5xl py-1'>Hello, {name}</h1>
-          <h1 className='text-3xl'>How can you help you today?</h1>
+          <h1 className='text-3xl'>How can I help you today?</h1>
         </div>
         <form onSubmit={handleSubmit} className="absolute bottom-14 mt-4 ">
           <input
@@ -155,11 +170,11 @@ const ChatPage = () => {
           <>
           <div className='flex items-center'>
           <p className='pt-[4px] mx-4 rounded-lg bg-green-500 h-[30px] w-[30px] text-center font-semibold '>{firstLetter}</p>
-          <p className='text-sm py-4'>{historyData?.question}</p>
+          <p className='text-md py-4'>{historyData?.question}</p>
          </div>
           <div className='flex items-start mt-4'>
           <Image className='pt-[4px] mx-4 mt-1 rounded-lg bg-white p-1 h-[30px] w-[30px] text-center font-semibold ' src={icon} alt='icon'/>
-          <p className='text-sm'>{historyData?.answer}</p>
+          <p className='text-md'>{historyData?.answer}</p>
           </div>
           </>:<></>
         }
@@ -167,7 +182,7 @@ const ChatPage = () => {
          {(questionSent && !historyinChat)&& (<>
          <div className='flex items-center'>
           <p className='pt-[4px] mx-4 rounded-lg bg-green-500 h-[30px] w-[30px] text-center font-semibold '>{firstLetter}</p>
-          <p className='text-sm py-4'>{questionSent}</p>
+          <p className='text-md py-4'>{questionSent}</p>
          </div>
          </>
          )}
@@ -175,7 +190,7 @@ const ChatPage = () => {
         {!historyinChat &&<div className='flex items-start mt-4'>
           {(!historyinChat || questionSent)&&<Image className='pt-[4px] mx-4 mt-1 rounded-lg bg-white p-1 h-[30px] w-[30px] text-center font-semibold ' src={icon} alt='icon'/> }
           <SkeletonTheme baseColor="#202020" highlightColor="#444"> 
-            {isSubmitting ? <p className='w-full'><Skeleton count={10}/></p>:<p className='text-sm'>{answer}</p> }
+            {isSubmitting ? <p className='w-full'><Skeleton count={10}/></p>:<p className='text-md'>{answer}</p> }
           </SkeletonTheme> 
          </div>}
         

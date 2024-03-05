@@ -4,13 +4,13 @@ import { motion } from 'framer-motion';
 
 const Research = () => {
     return (
-        <div className='h-[80vh] w-full px-[10vw]'>
+        <div className='h-[80vh] w-full px-[10vw] flex flex-col justify-center'>
             <motion.h1
           initial={{ opacity: 0, x: -200 }}
           transition={{ duration: 1 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-             className='text-3xl font-extrabold  pt-12 pb-2 text-[#fcce1c] tracking-[1px] '>Research</motion.h1>
+             className='text-3xl font-extrabold text-center pb-2 text-[#fcce1c] tracking-[1px] '>Research</motion.h1>
             <motion.h2
              initial={{ opacity: 0, x: 200 }}
              transition={{ duration: 1 }}

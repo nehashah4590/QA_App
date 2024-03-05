@@ -12,7 +12,7 @@ import Link from 'next/link';
 const Team = () => {
   return (
     <div className='h-[100vh] w-full p-8'>
-      <h1 className='text-3xl font-extrabold pt-4 pb-6 pl-28 text-[#fcce1c] tracking-[1px] text-left'>Our Team</h1>
+      <h1 className='text-3xl font-extrabold pt-4 pb-6  text-[#fcce1c] tracking-[1px] '>Our Team</h1>
       <div className=' flex justify-center gap-4 h-[80%]'>
 
       <motion.div

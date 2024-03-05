@@ -3,11 +3,6 @@ import GoogleProvider  from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import axios from "axios";
 
-interface User {
-    username: string
-    password: string
-  }
-
 const handler = NextAuth({
     providers: [
         GoogleProvider({
@@ -20,7 +15,7 @@ const handler = NextAuth({
             name: "Credentials",
            
             credentials: { },
-            async authorize(credentials:User, req): Promise<any> {
+            async authorize(credentials, req) {
                 const { username, password } = credentials;
               try{
                 const user =  await axios.post(`${process.env.NEXT_PUBLIC_HOST}/login/`,{

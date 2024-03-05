@@ -15,11 +15,11 @@ const Mentors = () => {
     <motion.div
       whileHover={{ scale: [null, 1.05, 1.05] }}
       transition={{ duration: 0.3 }}
-      className="bg-white border rounded-lg overflow-hidden shadow-md"
-      style={{ width: '600px', height: '650px' }}>
+      className="bg-white border rounded-lg overflow-hidden shadow-md h-full"
+      style={{ width: '600px', height: '550px' }}>
 
-      <Image className="w-full h-[420px] object-cover" src={sir1} alt="Card Image" />
-      <div className="p-4 text-left">
+      <Image className="w-full h-[380px] object-cover" src={sir1} alt="Card Image" />
+      <div className="p-4  text-left">
       <h2 className="text-xl font-bold mb-1">Supervisor</h2>
         <h2 className="text-xs font-bold ">Asst. Professor</h2>
         <h2 className="text-xs font-bold mb-1">Er. Manoj Kumar Guragain</h2>
@@ -31,9 +31,9 @@ const Mentors = () => {
        whileHover={{ scale: [null, 1.05, 1.05] }}
        transition={{ duration: 0.3 }}
        className="bg-white border rounded-lg overflow-hidden shadow-md"
-       style={{ width: '600px', height: '650px' }} // Adjust width and height as needed
+       style={{ width: '600px', height: '550px' }} // Adjust width and height as needed
      >
-      <Image className="w-full h-[420px] object-cover" src={sir2} alt="Card Image" />
+      <Image className="w-full h-[380px] object-cover" src={sir2} alt="Card Image" />
       <div className="p-4 text-left">
       <h2 className="text-xl font-bold mb-1">Mentor</h2>
         <h2 className="text-xs font-bold ">Asst. Professor</h2>
@@ -47,9 +47,9 @@ const Mentors = () => {
        whileHover={{ scale: [null, 1.05, 1.05] }}
        transition={{ duration: 0.3 }}
        className="bg-white border rounded-lg overflow-hidden shadow-md"
-       style={{ width: '600px', height: '650px' }} // Adjust width and height as needed
+       style={{ width: '600px', height: '550px' }} // Adjust width and height as needed
      >
-      <Image className="w-full h-[420px] object-cover" src={sir3} alt="Card Image" />
+      <Image className="w-full h-[380px] object-cover" src={sir3} alt="Card Image" />
       <div className="p-4 text-left">
       <h2 className="text-xl font-bold mb-1">Mentor</h2>
         <h2 className="text-xs font-bold ">Asst. Professor</h2>

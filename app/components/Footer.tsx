@@ -67,11 +67,11 @@ const Footer: React.FC = () => {
               />
             </div>
             <div className="text-center ">
-              <button type="submit" value="send" className="z-10 absolute bottom-10 left-16 bg-[#da123c] text-white px-6 py-2 rounded-md  hover:bg-white hover:text-[#da123c] border border-[#da123c]">Submit</button>
+              <button type="submit" value="send" className="z-10 absolute bottom-10 left-[170px] bg-[#da123c] text-white px-6 py-2 rounded-md  hover:bg-white hover:text-[#da123c] border border-[#da123c]">Submit</button>
             </div>
           </form>
         </div>
-        <div className=' w-[60vw] mt-4 gap-24 flex'>
+        <div className=' w-[60vw] mt-4 gap-16 flex'>
           <div className=' h-[300px] w-[200px] m-4 p-4'>
               <Link href="/" prefetch={false}>
                 <Image height={150} width={150} src={logo} loading="eager" alt="logo"></Image>
@@ -80,7 +80,7 @@ const Footer: React.FC = () => {
             <p className='text-sm text-gray-600 hover:text-gray-800 font-semibold pb-2'>gptnepal@gmail.com</p>
           </div>
           <div className=' h-[300px] w-[200px] m-4 p-4'>
-            <h2 className='font-bold tracking-[1px] text-[#da123c]'>Official Links</h2>
+            <h2 className='font-bold tracking-[1px] text-[#da123c] pb-1 mt-2'>Official Links</h2>
             <p className='text-sm text-gray-600 hover:text-gray-800 font-semibold pb-1'><Link className='hover:underline' href="https://ntb.gov.np/" target="_blank">Nepal Tourism Board</Link></p>
             <p className='text-sm text-gray-600 hover:text-gray-800 font-semibold pb-1'><Link className='hover:underline' href="https://www.greathimalayatrails.com/" target="_blank">Great Himalayan Trails</Link></p>
             <p className='text-sm text-gray-600 hover:text-gray-800 font-semibold pb-1'><Link className='hover:underline' href="https://www.immigration.gov.np/" target="_blank">Department of Immigration</Link></p>
@@ -88,7 +88,7 @@ const Footer: React.FC = () => {
             <p className='text-sm text-gray-600 hover:text-gray-800 font-semibold pb-1'><Link className='hover:underline' href="https://photo.ntb.gov.np/" target="_blank">Photo Nepal</Link></p>
           </div>
           <div className=' h-[300px] w-[200px] m-4 p-4'>
-            <h2 className='font-bold tracking-[1px] text-[#da123c]'>Developers</h2>
+            <h2 className='font-bold tracking-[1px] text-[#da123c] pb-1 mt-2'>Developers</h2>
             <p className='text-sm text-gray-600 hover:text-gray-800 font-semibold pb-1'>Neha Shah</p>
             <p className='text-sm text-gray-600 hover:text-gray-800 font-semibold pb-1'>Suraj Sharma</p>
             <p className='text-sm text-gray-600 hover:text-gray-800 font-semibold pb-1'>Rikesh Kumar Shah</p>
@@ -104,4 +104,4 @@ const Footer: React.FC = () => {
   )
 }
 
-export default Footer
+export default Footer;
