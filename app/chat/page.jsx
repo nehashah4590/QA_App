@@ -10,12 +10,12 @@ import Image from 'next/image';
 import icon from "../icon.png";
 
 const ChatPage = () => {
-  const [question, setQuestion] = useState<string>('');
-  const [answer, setAnswer] = useState<string>('');
-  const [name, setName] = useState<string>('');
-  const [firstLetter , setFirstLetter] = useState<string>('');
-  const [questionSent, setQuestionSent] =  useState<string>('');
-  const [historyData, setHistoryData] =  useState<HistoryItem | null>(null);
+  const [question, setQuestion] = useState('');
+  const [answer, setAnswer] = useState('');
+  const [name, setName] = useState('');
+  const [firstLetter , setFirstLetter] = useState('');
+  const [questionSent, setQuestionSent] =  useState('');
+  const [historyData, setHistoryData] =  useState(null);
   const [historyinChat, setShowHistoryinChat]  = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showChat, setShowChat] = useState(false);
