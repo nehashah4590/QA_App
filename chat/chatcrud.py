@@ -12,7 +12,16 @@ class CRUD:
         try:
             if len(question) >255:
                 raise HTTPException(status_code=status.HTTP_413_REQUEST_ENTITY_TOO_LARGE, detail="Question too long")
+            if question == "Hello" or question == "Hello!" or question == "Hi" or question == "Hi!":
+                return {"answer":"Hello! I am a virtual tour guider. I will here to answer your touristic questions."}
+            if question == "How are you?" or question == "Are you fine?" or question=="Hello. How are you?" or question=="Hi. How are you?":
+                return {"answer":"Thanks for asking for my well being. I am good and will be more happy to help you in your queries. How are you doing?"}
+            if question == "Who are you?" or question == "Who created you?" or question == "What's your name?":
+                return {"answer":"I am GPT Nepal. I am currently under development. I have been created as the final major project by the group of students of Purwanchal Campus. I have been created by Neha Shah, Suraj Sharma, Rikesh Shah and Puspa Limbu. There were some other helping hands as well. One of them is Krishna Prasad Yadav"}
             answer = generate_answer(question)
+            if question.startswith("Hi.") or question.startswith("Hi!") or question.startswith("Hello") or question.startswith("Hello!") or question.startswith("Hello."):
+                answer = "Hello!" + answer.replace(question, "")
+            answer = answer.replace(question, "")
             last_chat = await chat.find_one({}, sort=[('_id', -1)])
             chat_id = 1
             if last_chat:
