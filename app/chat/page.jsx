@@ -9,21 +9,6 @@ import "react-loading-skeleton/dist/skeleton.css";
 import Image from 'next/image';
 import icon from "../icon.png";
 
-interface HistoryItem {
-  question: string;
-  answer: string;
-  // Add other properties if there are more in your actual data
-}
-interface User {
-  access_token?: string;
-  chat_id?: string;
-  // Add other properties if there are more in your actual data
-}
-interface Session {
-  user: User;
-  // Add other properties if there are more in your actual data
-}
-
 const ChatPage = () => {
   const [question, setQuestion] = useState<string>('');
   const [answer, setAnswer] = useState<string>('');
@@ -35,7 +20,7 @@ const ChatPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showChat, setShowChat] = useState(false);
   
-  const { data: session } = useSession<Session | any>();
+  const { data: session } = useSession();
   const token = session?.user?.access_token ;
   const chat_id = session?.user?.chat_id;
   const username = session?.user?.name;
@@ -57,7 +42,7 @@ const ChatPage = () => {
   }, [username,firstLetter]);
 
   useEffect(() => {
-    if(id as any === "0"){
+    if(id  === "0"){
       setShowChat(false);
     }else{
       const axios = require('axios');
@@ -73,14 +58,14 @@ const ChatPage = () => {
     };
 
     axios.request(config)
-    .then((response: any) => {
+    .then((response) => {
       console.log("idj",JSON.stringify(response.data));
       setHistoryData(response.data);
       setShowChat(true);
       setShowHistoryinChat(true);
       
     })
-    .catch((error: any ) => {
+    .catch((error ) => {
       console.log(error);
     });
 
@@ -89,7 +74,7 @@ const ChatPage = () => {
 
   console.log("asdfew",historyData)
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e) => {
     setShowHistoryinChat(false);
     setHistoryData(null);
     setQuestionSent(question);
@@ -117,14 +102,14 @@ const ChatPage = () => {
     };
 
     axios.request(config)
-      .then((response: any) => {
+      .then((response) => {
         console.log(JSON.stringify("heloifjwe",response.data));
         console.log('Submitted question:', questionSent);
         setAnswer(response.data.answer)
         setIsSubmitting(false);
         
       })
-      .catch((error: any) => {
+      .catch((error) => {
         console.log(error);
         setIsSubmitting(false);
       });
