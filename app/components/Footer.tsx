@@ -31,9 +31,9 @@ const Footer: React.FC = () => {
 
   
   return (
-    <div className='bg-gray-100 h-[70vh] w-full relative'>
-      <div className='flex '>
-        <div className='w-[40vw] '>
+    <div className='bg-gray-100 md:h-[70vh] w-full relative mt-4 md:mt-0'>
+      <div className='flex flex-col md:flex-row'>
+        <div className='md:w-[40vw] '>
           <form ref={form} onSubmit={sendEmail} className="max-w-md mx-auto bg-white relative p-4 px-14 m-2 mt-8 h-[450px] ">
             <p className='text-2xl font-bold p-4 text-center text-[#fcce1c]'>Contact Us</p>
             <div className="mb-4">
@@ -67,19 +67,19 @@ const Footer: React.FC = () => {
               />
             </div>
             <div className="text-center ">
-              <button type="submit" value="send" className="z-10 absolute bottom-10 left-[170px] bg-[#da123c] text-white px-6 py-2 rounded-md  hover:bg-white hover:text-[#da123c] border border-[#da123c]">Submit</button>
+              <button type="submit" value="send" className="z-10 absolute bottom-10 left-[35vw] md:left-[170px] bg-[#da123c] text-white px-6 py-2 rounded-md  hover:bg-white hover:text-[#da123c] border border-[#da123c]">Submit</button>
             </div>
           </form>
         </div>
-        <div className=' w-[60vw] mt-4 gap-16 flex'>
-          <div className=' h-[300px] w-[200px] m-4 p-4'>
+        <div className=' w-[60vw] md:mt-4 md:gap-16 flex flex-col md:flex-row'>
+          <div className=' md:h-[300px] w-[200px] m-4 p-4'>
               <Link href="/" prefetch={false}>
                 <Image height={150} width={150} src={logo} loading="eager" alt="logo"></Image>
               </Link>
             <h2 className='font-bold tracking-[1px] text-[#da123c] mt-4'>Email</h2>
             <p className='text-sm text-gray-600 hover:text-gray-800 font-semibold pb-2'>gptnepal@gmail.com</p>
           </div>
-          <div className=' h-[300px] w-[200px] m-4 p-4'>
+          <div className=' md:h-[300px] w-[200px] m-4 p-4'>
             <h2 className='font-bold tracking-[1px] text-[#da123c] pb-1 mt-2'>Official Links</h2>
             <p className='text-sm text-gray-600 hover:text-gray-800 font-semibold pb-1'><Link className='hover:underline' href="https://ntb.gov.np/" target="_blank">Nepal Tourism Board</Link></p>
             <p className='text-sm text-gray-600 hover:text-gray-800 font-semibold pb-1'><Link className='hover:underline' href="https://www.greathimalayatrails.com/" target="_blank">Great Himalayan Trails</Link></p>
@@ -87,7 +87,7 @@ const Footer: React.FC = () => {
             <p className='text-sm text-gray-600 hover:text-gray-800 font-semibold pb-1'><Link className='hover:underline' href="https://nepalairlines.com.np/" target="_blank">Nepal Airlines</Link></p>
             <p className='text-sm text-gray-600 hover:text-gray-800 font-semibold pb-1'><Link className='hover:underline' href="https://photo.ntb.gov.np/" target="_blank">Photo Nepal</Link></p>
           </div>
-          <div className=' h-[300px] w-[200px] m-4 p-4'>
+          <div className=' md:h-[300px] w-[200px] m-4 p-4'>
             <h2 className='font-bold tracking-[1px] text-[#da123c] pb-1 mt-2'>Developers</h2>
             <p className='text-sm text-gray-600 hover:text-gray-800 font-semibold pb-1'>Neha Shah</p>
             <p className='text-sm text-gray-600 hover:text-gray-800 font-semibold pb-1'>Suraj Sharma</p>

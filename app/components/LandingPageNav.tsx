@@ -36,12 +36,12 @@ const LandingPageNav: React.FC<NavbarProps> = ({ section1Id, section2Id, section
 
   return (
     <>
-      <nav className={`z-50  w-[100vw] text-white ${scrolling ? 'bg-gray-800 shadow-lg' : 'bg-transparent'}`}>
+      <nav className={`z-50  w-[100vw]  text-white ${scrolling ? 'bg-gray-800 shadow-lg' : 'bg-transparent'}`}>
         <div className="justify-between  mx-auto lg:max-w-7xl md:items-center md:flex py-1 ">
           <div>
             <div className="flex items-center justify-between py-2 md:py-1 md:block ">
-             <div className=''>
-             <Link href="/" prefetch={false}>
+             <div className='pl-5 md:pl-0'>
+             <Link href="/" prefetch={false} >
                 <Image height={150} width={150} src={logo} loading="eager" alt="logo"></Image>
               </Link>
              </div>
@@ -87,10 +87,10 @@ const LandingPageNav: React.FC<NavbarProps> = ({ section1Id, section2Id, section
           </div>
           <div>
             <div
-              className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${navbar ? 'block' : 'hidden'
+              className={`flex-1 justify-self-center pb-3 md:block md:pb-0 md:mt-0 ${navbar ? 'block' : 'hidden'
                 }`}
             >
-              <ul className=" items-center text-sm font-semibold tracking-[2px] space-y-8 p-3 pr-0 md:flex md:space-x-8 md:space-y-0 justify-end ">
+              <ul className=" items-center text-sm font-semibold tracking-[2px] space-y-8  p-3 pr-0 md:flex md:space-x-8 md:space-y-0 justify-end ">
                 <li className="pl-4">
                     <div className='mr-1 '>
                       <Link href={`#${section1Id}`} 	prefetch={false} className={styles.link}>

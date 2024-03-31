@@ -91,7 +91,7 @@ const Page: React.FC = () => {
   return (
     <>
        <div
-        className='flex h-screen w-full relative'
+        className='flex h-screen w-full absolute'
         style={{
           backgroundImage: 'url("/images/stupa.jpg")', // Replace with the path to your background image
           backgroundSize: 'cover',
@@ -167,7 +167,7 @@ const Page: React.FC = () => {
           
         </div>
 
-        <div className='w-[40%] relative z-10 bg-gray-900'>
+        <div className='w-[100%] md:w-[40%] relative z-10 bg-gray-900'>
           <div className='p-5 h-[46%] flex justify-center items-end'>
             <h1 className='font-bold text-[32px] text-white '>Get started</h1>
           </div>

@@ -16,7 +16,7 @@ export default function Home() {
         <div className='fixed right-0 z-50'>
           <LandingPageNav section1Id="section1" section2Id="section2" section3Id="section3" section4Id="section4" section5Id="section5" />
         </div>
-        <div className='text-white absolute top-[60vh] left-[10vw]'>
+        <div className='text-white absolute top-[40vh] md:top-[60vh] left-[10vw]'>
           <h1 className='text-4xl font-extrabold tracking-[1px]'>Introducing GPT Nepal: Your Personal <br /> Guide To Visit Nepal</h1>
         </div>
         <div className='absolute bottom-[12vh] left-[10vw] z-10'>
