@@ -19,14 +19,15 @@ const ChatPage = () => {
   const [historyinChat, setShowHistoryinChat]  = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showChat, setShowChat] = useState(false);
+  const [id, setId] = useState("Hello");
   
   const { data: session } = useSession();
   const token = session?.user?.access_token ;
   const chat_id = session?.user?.chat_id;
   const username = session?.user?.name;
 
-  const searchParams = useSearchParams();
-  const id = searchParams.get("value");
+  // const searchParams = useSearchParams();
+  // const id = searchParams.get("value");
 
 
   useEffect(() => {
