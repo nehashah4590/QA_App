@@ -9,6 +9,7 @@ import { ImBin } from "react-icons/im";
 import { useRouter } from 'next/navigation';
 import {usePathname} from 'next/navigation';
 import SigninButton from '../components/SigninButton';
+import {Suspense} from "react";
 
 export default function RootLayout({ children}) {
   const [open, setOpen] = useState(true);
@@ -93,6 +94,8 @@ export default function RootLayout({ children}) {
             (<nav className={` h-screen flex flex-col w-full p-1 pl-2 ${lightMode ? ' text-black bg-gray-200': "text-white bg-gray-950"}`}>
 
                 {/* New Chat */}
+              
+              <Suspense fallback={<>Loading...</>}>
               <div className='flex  w-full h-[50px] py-2 mt-[72px] mb-2  '>
                 <button
                   onClick={()=>{router.push(`${currentPage}?value=${0}`)}}
@@ -100,8 +103,11 @@ export default function RootLayout({ children}) {
                   <FaPlus className='mx-2' /> New Chat
                 </button>
               </div>
+              </Suspense>
 
               {/* History */}
+             
+              <Suspense fallback={<>Loading...</>}>
               <div className='p-2 w-full h-[50vh] overflow-y-auto mb-4'>
               {historyData?.map((item) => (
                 <button
@@ -111,6 +117,7 @@ export default function RootLayout({ children}) {
                 </button>
               ))}
               </div>
+              </Suspense>
 
             {/* clear chat */}
             <hr></hr>
