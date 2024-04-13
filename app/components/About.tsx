@@ -52,7 +52,7 @@ const About = () => {
             </div>
 
             {/* About Nepal */}
-            <div className="bg-cover bg-center h-[1820px] md:h-[140vh] w-[100vw] relative"
+            <div className="absolute bg-cover bg-center h-[1820px] md:h-[140vh] w-[100vw] "
                 style={{ backgroundImage: "url('https://ntb.gov.np/storage/website/landscape2-44237cb6.jpeg')" }}>
                 <div className="absolute w-full h-full bg-white opacity-70"></div>
                 <div className='absolute right-4 top-[40vh] m-4'>

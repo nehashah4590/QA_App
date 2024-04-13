@@ -13,7 +13,7 @@ const SigninButton = () => {
         return (
             <div >
                 <div className='flex w-full rounded-lg hover:bg-gray-700  m-1 py-1'>
-                    <p className='pt-[4px] mx-1 mt-1 ml-2 rounded-lg bg-green-500 h-[30px] w-[30px] text-center font-semibold '>{(session.user.name)?.charAt(0)}</p>
+                    <p  className='pt-[4px] mx-1 mt-1 ml-2 rounded-lg bg-green-500 h-[30px] w-[30px] text-center font-semibold '>{(session.user.name)?.charAt(0)}</p>
                     <p className='flex items-center pl-1 text-sm py-2'>{session.user.name}</p>
                 </div>
                 <button

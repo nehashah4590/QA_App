@@ -49,7 +49,7 @@ const Typewriter: React.FC = () => {
   }, [currentFactIndex, isTyping]);
 
   return (
-    <div className="text-sm text-center relative">
+    <div className="text-sm text-center absolute">
       <p className='pt-2 font-normal text-justify text-sm '>
         {currentText}
         {showCursor && <span className="">|</span>}

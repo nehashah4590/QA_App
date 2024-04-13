@@ -27,7 +27,7 @@ const ForgotPasswordPage: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
+    <div className="absolute flex flex-col items-center justify-center min-h-screen">
        {success ? (
       <>
         <p className="text-green-500">Verification code sent to your Gmail account!</p>
