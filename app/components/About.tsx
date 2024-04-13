@@ -15,7 +15,7 @@ import Typewriter from './Typewritting';
 const About = () => {
     
     return (
-        <div className='flex flex-col justify-center  items-center'>
+        <div className='absolute flex flex-col justify-center  items-center'>
 
             <div className='h-auto lg:h-[74vh] w-[80vw] gap-8  p-4  m-4 flex flex-col md:flex-row justify-center'>
             <motion.div
