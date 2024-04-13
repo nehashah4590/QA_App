@@ -50,10 +50,10 @@ const SignInPage:React.FC = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center min-h-screen ">
-      {/* <div className='absolute top-8'>
+      {/* <div className="flex flex-col items-center justify-center min-h-screen ">
+      <div className='absolute top-8'>
         <Image height={100} width={100} src={logo} loading="eager" alt="logo"></Image>
-        </div> */}
+        </div>
       <h1 className='font-bold text-3xl mb-4'>Welcome back</h1>
         <div className="w-[400px] py-5 px-6 ">
           <form onSubmit={handleSubmit}>
@@ -129,8 +129,10 @@ const SignInPage:React.FC = () => {
         <div className='p-2'>
             <p className='text-center pb-4'>Don't have an account? <Link href='./signup' className='text-blue-500'>Sign up</Link></p>
           </div>
+      </div> */}
+      <div>
+        Hello
       </div>
-
     </>
   );
 };
