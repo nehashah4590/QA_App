@@ -50,7 +50,7 @@ const SignInPage:React.FC = () => {
 
   return (
     <>
-      {/* <div className="flex flex-col items-center justify-center min-h-screen ">
+      <div className="flex flex-col items-center justify-center bg-gray-100">
       <div className='absolute top-8'>
         <Image height={100} width={100} src={logo} loading="eager" alt="logo"></Image>
         </div>
@@ -129,10 +129,8 @@ const SignInPage:React.FC = () => {
         <div className='p-2'>
             <p className='text-center pb-4'>Don't have an account? <Link href='./signup' className='text-blue-500'>Sign up</Link></p>
           </div>
-      </div> */}
-      <div>
-        Hello
       </div>
+    
     </>
   );
 };
