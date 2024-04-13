@@ -4,7 +4,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import logo from '../../public/images/logo.png';
-import mountaion from "../../public/images/mountain-yellow.png"
+import mountaion from "../../public/images/mountain-yellow.png";
+import { MdArrowOutward } from "react-icons/md";
 
 const Cursor: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
   return <span style={{ opacity: isVisible ? 1 : 0 }}>|</span>;
@@ -177,6 +178,13 @@ const Page: React.FC = () => {
             </Link>
             <Link href='./auth/signup'>
               <button className='bg-[#3c46ff] px-16 py-3 rounded-md ml-1 hover:bg-[#0101ff]'>Sign up</button>
+            </Link>
+          </div>
+          <div className=' flex justify-center mt-6'>
+          <Link href='./chat'>
+              <button className='bg-white hover:bg-red-500 hover:text-white px-6 py-3 rounded-sm ml-1 flex'>Try GPTNepal Free
+              <span className="text-2xl pl-1"><MdArrowOutward /></span>
+              </button>
             </Link>
           </div>
           <div className='absolute bottom-0'>

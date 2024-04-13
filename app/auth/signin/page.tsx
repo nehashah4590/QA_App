@@ -55,7 +55,7 @@ const SignInPage:React.FC = () => {
         <Image height={100} width={100} src={logo} loading="eager" alt="logo"></Image>
         </div>
       <h1 className='font-bold text-3xl mb-4'>Welcome back</h1>
-        <div className="w-[400px] py-5 px-6 bg-gray-100">
+        <div className="w-[400px] py-5 px-6">
           <form onSubmit={handleSubmit}>
           <div className="mb-6 relative">
                 <input
