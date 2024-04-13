@@ -21,7 +21,7 @@ export default function Home() {
         </div>
         <div className='absolute bottom-[12vh] left-[10vw] z-10'>
           <button className='flex border cursor-pointer border-white text-white rounded-md px-8 py-2 font-bold hover:text-black hover:bg-white'>
-          <Link href="/auth">
+          <Link href="/chat">
             <span className="flex items-center">
               Try GPTNepal
             <span className="text-2xl pl-1"><MdArrowOutward /></span>
@@ -47,7 +47,6 @@ export default function Home() {
       <div id="section5">
         <Footer />
       </div>
-
     </>
   )
 }
