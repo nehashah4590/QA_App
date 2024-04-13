@@ -52,7 +52,7 @@ const  SignuPage:React.FC  = () => {
 
   return (
     <>
-        <div className="absolute flex flex-col items-center justify-center min-h-screen">
+        <div className="absolute flex flex-col items-center justify-center w-[100vw]  h-[100vh] ">
         <div className='absolute top-8'>
         <Image height={100} width={100} src={logo} loading="eager" alt="logo"></Image>
         </div>
