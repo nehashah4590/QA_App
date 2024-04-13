@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const Research = () => {
     return (
-        <div className=' absolute my-8 md:my-0 md:h-[80vh] w-full px-[10vw] flex flex-col justify-center'>
+        <div className=' my-8 md:my-0 md:h-[80vh] w-full px-[10vw] flex flex-col justify-center'>
             <motion.h1
           initial={{ opacity: 0, x: -200 }}
           transition={{ duration: 1 }}

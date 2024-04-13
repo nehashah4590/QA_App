@@ -37,16 +37,16 @@ export default function Home() {
       </div>
       {/* <div id="section2">
         <Research />
-      </div>
-      <div id="section3">
+      </div> */}
+      {/* <div id="section3">
         <Mentors />
       </div>
       <div id="section4">
         <Team />
-      </div>
+      </div> */}
       <div id="section5">
         <Footer />
-      </div> */}
+      </div>
       </main>
     </>
   )

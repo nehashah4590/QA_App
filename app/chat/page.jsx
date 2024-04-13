@@ -119,7 +119,7 @@ const ChatPage = () => {
 
   if(showChat === false){
     return(
-      <div className="absolute h-full">
+      <div className="absolute h-[100vh] w-[100vw]">
       <div className=' h-full  text-center flex justify-center'>  
         <div className='w-[80vw] h-[90vh] px-[10vw] py-[10vh] mt-10  overflow-y-auto box'> 
           <h1 className='text-5xl py-1'>Hello, {name}</h1>
@@ -148,7 +148,7 @@ const ChatPage = () => {
     )
   }else{
   return (
-    <div className="absolute h-full">
+    <div className="absolute h-[100vh] w-[100vw]">
       <div className='h-full  text-center flex justify-center'>    
         <div className='w-[80vw] h-[90vh] px-[10vw] py-[10vh]  overflow-y-auto box'>
         <div className='flex flex-col text-left  px-12'>
