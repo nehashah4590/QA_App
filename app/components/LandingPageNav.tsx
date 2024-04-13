@@ -120,7 +120,7 @@ const LandingPageNav: React.FC<NavbarProps> = ({ section1Id, section2Id, section
                   </Link>
                 </li>
                 <button className="flex tracking-[1px] items-center border bg-blue-950 cursor-pointer border-transparent text-white rounded-sm px-8 py-2 font-bold hover:bg-white hover:text-black">
-                   <Link href="/chat">
+                   <Link href="/auth">
                     <span className="flex items-center ">
                       Try GPTNepal
                     <span className="text-2xl pl-1"><MdArrowOutward /></span>
