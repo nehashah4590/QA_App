@@ -30,7 +30,7 @@ const About = () => {
 
                         With the advent of GPT Nepal, tourists can now confidently embark on solo adventures and significantly reduce expenses typically associated with hiring traditional tour guides.
                     </p>
-                    <div className='text-[#da123c] font-bold  px-2 text-center h-[150px]'>
+                    <div className='text-[#da123c] font-bold  px-2 text-center h-[150px] absolute w-[550px]'>
                     <motion.h1 
                      initial={{ opacity: 0, y: 20 }}
                      transition={{ duration: 1 }}
@@ -52,7 +52,7 @@ const About = () => {
             </div>
 
             {/* About Nepal */}
-            <div className=" bg-cover bg-center h-[1820px] md:h-[140vh] w-[100vw] "
+            <div className="relative bg-cover bg-center h-[1820px] md:h-[140vh] w-[100vw] "
                 style={{ backgroundImage: "url('https://ntb.gov.np/storage/website/landscape2-44237cb6.jpeg')" }}>
                 <div className="absolute w-full h-full bg-white opacity-70"></div>
                 <div className='absolute right-4 top-[40vh] m-4'>
