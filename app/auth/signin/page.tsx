@@ -50,7 +50,7 @@ const SignInPage:React.FC = () => {
 
   return (
     <>
-      <div className=" absolute w-[100vw]  h-[100vh] flex flex-col items-center justify-center ">
+      <div className="  w-[100vw]  h-[100vh] flex flex-col items-center justify-center ">
       <div className='absolute top-8'>
         <Image height={100} width={100} src={logo} loading="eager" alt="logo"></Image>
         </div>
