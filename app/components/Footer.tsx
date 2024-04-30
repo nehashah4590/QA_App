@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
 
   
   return (
-    <div className='absolute top-[320vh] bg-gray-100 md:h-[70vh] w-full  mt-4 md:mt-0 '>
+    <div className=' bg-gray-100 md:h-[70vh] w-full  mt-4 md:mt-0 '>
       <div className='flex flex-col md:flex-row'>
         <div className='md:w-[40vw] '>
           <form ref={form} onSubmit={sendEmail} className="max-w-md mx-auto bg-white relative p-4 px-14 m-2 mt-8 h-[450px] ">

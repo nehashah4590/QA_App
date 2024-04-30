@@ -92,7 +92,7 @@ const Page: React.FC = () => {
   return (
     <>
        <div
-        className='flex h-screen w-full absolute'
+        className='flex h-screen w-full '
         style={{
           backgroundImage: 'url("/images/stupa.jpg")', // Replace with the path to your background image
           backgroundSize: 'cover',

@@ -34,7 +34,7 @@ const EnterCodeForm: React.FC = () => {
 
 
   return (
-    <div className="absolute flex flex-col items-center justify-center w-[100vw]  h-[100vh] ">
+    <div className=" flex flex-col items-center justify-center w-[100vw]  h-[100vh] ">
     <h1 className='font-bold text-3xl text-center mb-4'>User Created!
     <p className='font-light text-[18px] leading-4 mt-4'>Check your email for verification code</p>
      </h1>
