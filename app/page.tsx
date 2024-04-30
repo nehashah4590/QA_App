@@ -29,7 +29,7 @@ export default function Home() {
           </Link>
           </button>
         </div> */}
-        <video className=" w-[100vw] h-[100vh]" src='/images/bgvideo.mp4' autoPlay muted loop />
+        <video className="" src='/images/bgvideo.mp4' autoPlay muted loop />
         </main>
 
       {/* <div id="section1">
