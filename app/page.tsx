@@ -11,7 +11,7 @@ export default function Home() {
 
   return (
     <>
-      <main className="absolute ">
+      <main className="relative ">
         <div className="absolute w-full h-full bg-black opacity-40"></div>
         <div className='fixed right-0 z-50'>
           <LandingPageNav section1Id="section1" section2Id="section2" section3Id="section3" section4Id="section4" section5Id="section5" />
@@ -30,11 +30,11 @@ export default function Home() {
           </button>
         </div>
         <video className="object-cover w-[100vw] h-[100vh]" src='/images/bgvideo.mp4' autoPlay muted loop />
-      
+        </main>
 
-      <div id="section1">
+      {/* <div id="section1">
         <About />
-      </div>
+      </div> */}
       {/* <div id="section2">
         <Research />
       </div> */}
@@ -47,7 +47,7 @@ export default function Home() {
       <div id="section5">
         <Footer />
       </div>
-      </main>
+      
     </>
   )
 }
