@@ -148,7 +148,7 @@ const ChatPage = () => {
     )
   }else{
   return (
-    <div className=" h-[100vh] w-[100vw]">
+    <div className=" h-[100vh]">
       <div className='h-full  text-center flex justify-center'>    
         <div className='w-[80vw] h-[90vh] px-[10vw] py-[10vh]  overflow-y-auto box'>
         <div className='flex flex-col text-left  px-12'>
