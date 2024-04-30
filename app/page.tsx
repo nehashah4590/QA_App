@@ -30,7 +30,7 @@ export default function Home() {
           </button>
         </div>
         <video className="object-cover w-[100vw] h-[100vh]" src='/images/bgvideo.mp4' autoPlay muted loop />
-        </main>
+       
 
       <div id="section1">
         <About />
@@ -47,6 +47,7 @@ export default function Home() {
       <div id="section5">
         <Footer />
       </div>
+      </main>
       
     </>
   )
