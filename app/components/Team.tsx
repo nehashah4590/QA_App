@@ -11,7 +11,7 @@ import Link from 'next/link';
 
 const Team = () => {
   return (
-    <div className='absolute md:h-[100vh] w-full p-1 md:p-8'>
+    <div className=' md:h-[100vh] w-full p-1 md:p-8'>
       <h1 className='text-3xl font-extrabold pt-4 pb-6  text-[#fcce1c] tracking-[1px] '>Our Team</h1>
       <div className=' flex flex-col md:flex-row justify-center gap-4 h-[80%]'>
 

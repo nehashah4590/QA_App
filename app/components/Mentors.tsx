@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 
 const Mentors = () => {
   return (
-    <div className='absolute md:h-[100vh] w-full bg-gray-100 p-1 md:p-8'>
+    <div className=' md:h-[100vh] w-full bg-gray-100 p-1 md:p-8'>
         <h1 className='text-3xl font-extrabold p-4 pb-7 text-[#da123c] tracking-[1px] text-left'>Our Mentors</h1>
     <div className=' flex flex-col md:flex-row justify-center gap-4 h-[80%]'>
 
