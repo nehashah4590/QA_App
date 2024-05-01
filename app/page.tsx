@@ -11,7 +11,7 @@ export default function Home() {
 
   return (
     <>
-      <main className=" absolute">
+      <main className=" ">
         <div className="absolute w-full h-full bg-black opacity-40"></div>
         <div className='fixed right-0 z-50'>
           <LandingPageNav section1Id="section1" section2Id="section2" section3Id="section3" section4Id="section4" section5Id="section5" />
